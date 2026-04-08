@@ -1,6 +1,9 @@
 # 🕹️ Product Backlog - RetroPVPArena
 
 **Estado:** Definición Inicial | **Sprint:** 0 | **Fecha de inicio:** 08/04/2026
+
+**Fecha fin Sprint 1:** 15/04/2026
+
 **Prioridades:** 🔴 P1: Crítico (MVP) | 🟡 P2: Importante | 🔵 P3: Deseable
 
 ---
@@ -8,6 +11,7 @@
 ## 1. Investigación, Análisis y Entorno (Entornos y SSII)
 
 - [x] **GIT-01 (P1):** Setup de Repositorio Profesional. [cite_start]Estructura `/src`, `/web`, `/docs`, `/sql` [cite: 172-175].
+- [x] **CLK-01 (p1):** Setup del tablero de CLickUp para el seguimiento del proyecto. Definición de las tareas del primer sprint.
 - [ ] **AN-01 (P1):** Definición de Stack Tecnológico (Java 17, MySQL, JDBC, HTML/CSS).
 - [ ] **SYS-01 (P1):** Informe Técnico de Entorno. [cite_start]Hardware, SO y requisitos mínimos [cite: 375-389].
 
@@ -22,7 +26,7 @@
 
 - [cite_start][ ] **WEB-01 (P1):** Maquetación de Landing Page con formulario de contacto [cite: 227-229, 246].
 - [cite_start][ ] **WEB-02 (P2):** Página de Catálogo con grid responsive de productos[cite: 235, 258].
-- [ ] **WEB-03 (P2):** Página de Torneos con detalle de eventos.
+- [cite_start][ ] **WEB-03 (P2):** Página de Torneos con detalle de eventos.
 - [cite_start][ ] **WEB-04 (P1):** CSS Global: Estética retro-gaming y diseño coherente [cite: 247-253].
 
 ## 4. Backend y App JavaFX (Programación y MPO)
@@ -30,7 +34,7 @@
 - [cite_start][ ] **APP-01 (P1):** Modelado POO: Clases `Producto`, `Torneo`, `Participante` con encapsulación [cite: 451-454].
 - [cite_start][ ] **APP-02 (P1):** Conexión JDBC: Implementación de la lógica de conexión a MySQL [cite: 322-327].
 - [cite_start][ ] **APP-03 (P2):** Gestión de Inventario (CRUD): Interfaz JavaFX para la tienda [cite: 313-317, 335].
-- [ ] **APP-04 (P2):** Lógica de Torneos: Validación de aforo máximo y gestión de inscripciones.
+- [cite_start][ ] **APP-04 (P2):** Lógica de Torneos: Validación de aforo máximo y gestión de inscripciones.
 - [cite_start][ ] **MPO-01 (P1):** Mejora Estructural: Refactorización en capas (Modelo, DAO, Controller)[cite: 461, 477].
 
 ## 5. Identidad y Entrega (Empleabilidad e Intermodular)
