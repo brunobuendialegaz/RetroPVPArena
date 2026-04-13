@@ -50,5 +50,6 @@ Actualmente nos encontramos en el **Sprint 1: Cimientos**.
 - [x] **BBDD-01:** Diagrama E/R
 - [ ] **WEB-01:** Maquetación de Landing Page.
 - [ ] **APP-01:** Modelado POO
+- [x] **BBDD-02** Creación de la bbdd
 
 Puedes consultar el Backlog detallado [aquí](./docs/backlog.md).

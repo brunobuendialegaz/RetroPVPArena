@@ -19,7 +19,7 @@
 
 - [x] **BBDD-01 (🔴):** Análisis de Entidades y Atributos (Juegos, Torneos, Participantes) [cite: 101-106].
 - [x] **BBDD-02 (🔴):** Diseño del Diagrama Entidad-Relación (E/R) y Modelo Relacional [cite: 108-122].
-- [16/04/2025][ ] **BBDD-03 (🟡):** Script SQL de creación (`schema.sql`) e inserción de datos (`data.sql`) [cite: 127-130].
+- [x] **BBDD-03 (🟡):** Script SQL de creación (`schema.sql`) e inserción de datos (`data.sql`) [cite: 127-130].
 - [23/04/2025][ ] **BBDD-04 (🟡):** Desarrollo de consultas SQL críticas (Stock, inscritos por torneo) [cite: 132-140].
 
 ## 3. Frontend Web (Lenguajes de Marcas)
