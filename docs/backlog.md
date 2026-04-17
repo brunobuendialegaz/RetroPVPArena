@@ -13,7 +13,7 @@
 - [x] **GIT-01 (🔴):** Setup de Repositorio Profesional. [cite_start]Estructura `/src`, `/web`, `/docs`, `/sql` [cite: 172-175].
 - [x] **CLK-01 (🔴):** Setup del tablero de CLickUp para el seguimiento del proyecto. Definición de las tareas del primer sprint.
 - [x] **AN-01 (🔴):** Definición de Stack Tecnológico (Java 17, MySQL, JDBC, HTML/CSS).
-- [30/04/2025][ ] **SYS-01 (🔴):** Informe Técnico de Entorno. [cite_start]Hardware, SO y requisitos mínimos [cite: 375-389].
+- [x] **SYS-01 (🔴):** Informe Técnico de Entorno. [cite_start]Hardware, SO y requisitos mínimos [cite: 375-389].
 
 ## 2. Arquitectura de Datos (Bases de Datos)
 
@@ -24,7 +24,7 @@
 
 ## 3. Frontend Web (Lenguajes de Marcas)
 
-- [ ] **WEB-01 (🔴):** Maquetación de Landing Page con formulario de contacto [cite: 227-229, 246].
+- [x] **WEB-01 (🔴):** Maquetación de Landing Page con formulario de contacto [cite: 227-229, 246].
 - [ ] **WEB-02 (🟡):** Página de Catálogo con grid responsive de productos[cite: 235, 258].
 - [ ] **WEB-03 (🟡):** Página de Torneos con detalle de eventos.
 - [16/04/2025][ ] **WEB-04 (🔴):** CSS Global: Estética retro-gaming y diseño coherente [cite: 247-253].

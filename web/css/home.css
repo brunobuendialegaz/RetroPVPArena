@@ -1,0 +1,16 @@
+.hero{
+    color: var(--color-texto);
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../assets/img/fondo-azul-pikachu-mario-Photoroom.png);
+    background-size: contain;
+    background-position: center;
+}
+
+.hero .glass {
+    align-self: flex-start; /* Esto lo mueve a la izquierda */
+    margin-left: 12%;        /* Opcional: para que no quede pegado al borde */
+}
