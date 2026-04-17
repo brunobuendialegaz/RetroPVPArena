@@ -181,6 +181,7 @@ create table if not exists rival(
 	id_usuario int not null,
 	id_torneo int not null,
 	id_enfrentamiento int not null,
+	es_ganador boolean default FALSE,
 	
 	primary key (id_usuario, id_torneo, id_enfrentamiento),
 	
