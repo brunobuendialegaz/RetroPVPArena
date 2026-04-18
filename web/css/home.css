@@ -1,16 +1,105 @@
 .hero{
-    color: var(--color-texto);
-    height: 60vh;
+    min-height: 60vh;
+    width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 8%;
     background-image: url(../assets/img/fondo-azul-pikachu-mario-Photoroom.png);
-    background-size: contain;
+    background-size: cover;
     background-position: center;
 }
 
 .hero .glass {
-    align-self: flex-start; /* Esto lo mueve a la izquierda */
-    margin-left: 12%;        /* Opcional: para que no quede pegado al borde */
+    /* Una capa oscura semi-transparente */
+    background: rgba(13, 13, 21, 0.7); 
+    
+    /* El truco mágico: desenfoca lo que hay DETRÁS */
+    backdrop-filter: blur(8px); 
+    
+    padding: var(--container-padding);
+    border-radius: var(--radius);
+    border: var(--border-pixel); /* Un borde neón para que resalte */
+    
+    /* Asegura que el contenedor no sea demasiado ancho en móvil */
+    max-width: 90%;
+}
+
+.carrusel-seccion {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.carrusel {
+    margin-top: var(--container-padding);
+    display: flex;
+    gap: var(--container-padding);
+    width: max-content;
+    animation: scroll-infinito 20s steps(30) infinite;
+}
+
+.tarjeta {
+    width: 280px;
+    min-height: 350px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: var(--border-pixel);
+    border-radius: var(--radius);
+    padding: var(--container-padding);
+    gap: 5px;
+    box-shadow: var(--shadow-retro);
+}
+
+@media (max-width: 1024px) {
+    .carrusel-seccion {
+        overflow: visible;
+    }
+    .carrusel {
+        animation: none;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--container-padding);
+        width: 100%;
+        justify-items: center;
+    }
+}
+
+@media (max-width: 650px) {
+    .carrusel {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta {
+        width: 90%;
+        max-width: 280px;
+    }
+
+    .hero {
+        padding-left: 0;
+        justify-content: center;
+    }
+
+
+    .hero .glass {
+        width: 90%;
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+}
+
+@keyframes scroll-infinito {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }

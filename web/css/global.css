@@ -2,17 +2,18 @@
     --bg-color: #12181f;
     --text-color: #a3aab4;
 
-    --accent-1: #d0fa00;
-    --accent-2: #3dcdda;
+    --accent-1: #3dcdda;
+    --accent-2: #d0fa00;
 
     --font-titles: 'Bitcount Grid Double', system-ui;
     --font-retro: 'Jersey 25', sans-serif;
 
-    --shadow-retro: 4px 4px 0px var(--accent-2);
-    --border-pixel: 3px solid var(--text-color);
+    --shadow-retro: 4px 4px 0px var(--accent-1);
+    --border-pixel: 2px solid var(--accent-1);
+    --radius: 4px;
 
     --spacing-unit: 8px;
-    --container-padding: 24px;
+    --container-padding: 20px;
 
     --glow-cyan: 0 0 10px rgba(0, 255, 204, 0.7);
 }
@@ -21,6 +22,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -56,8 +61,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    border-bottom: 1px solid;
-    border-color: var(--accent-1);
+    border-bottom: 1px solid var(--accent-1);
     padding: var(--container-padding);
     position: sticky;
     top: 0;
@@ -71,4 +75,34 @@ header {
 nav ul{
     display: flex;
     gap: var(--container-padding);
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100px;
+    border-top: 1px solid var(--accent-1);
+    margin-top: var(--container-padding);
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Apila logo, título y nav */
+        gap: 15px;
+        padding: var(--container-padding);
+    }
+
+    nav ul { /* Los enlaces uno debajo de otro */
+        align-items: center;
+        gap: 10px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
+        padding: var(--container-padding);
+    }
+
+
 }
