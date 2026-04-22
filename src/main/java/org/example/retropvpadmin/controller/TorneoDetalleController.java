@@ -3,40 +3,37 @@ package org.example.retropvpadmin.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class TorneoController {
-
-    @FXML
-    private ComboBox<?> arbitroCombo;
+public class TorneoDetalleController {
 
     @FXML
     private TextField buscadorField;
 
     @FXML
-    private Button crearButton;
-
-    @FXML
     private RadioButton enProcesoRadio;
-
-    @FXML
-    private TableColumn<?, ?> estadoColumn;
-
-    @FXML
-    private TableColumn<?, ?> fechaColumn;
-
-    @FXML
-    private DatePicker fechaPicker;
 
     @FXML
     private RadioButton finalizadosRadio;
 
     @FXML
-    private TableColumn<?, ?> juegoColumn;
+    private Button ganadorButton;
 
     @FXML
-    private ComboBox<?> juegoCombo;
+    private TableColumn<?, ?> ganadorColumn;
 
     @FXML
-    private TableColumn<?, ?> juezColumn;
+    private ComboBox<?> ganadorCombo;
+
+    @FXML
+    private TableColumn<?, ?> jugador1Column;
+
+    @FXML
+    private TableColumn<?, ?> jugador2Column;
+
+    @FXML
+    private TableColumn<?, ?> jugador3Column;
+
+    @FXML
+    private TableColumn<?, ?> jugador4Column;
 
     @FXML
     private TableColumn<?, ?> nombreColumn;
@@ -45,16 +42,7 @@ public class TorneoController {
     private ToggleButton panelButton;
 
     @FXML
-    private Spinner<?> participantesSpiner;
-
-    @FXML
     private RadioButton pendientesRadio;
-
-    @FXML
-    private TableColumn<?, ?> salaColumn;
-
-    @FXML
-    private ComboBox<?> salaCombo;
 
     @FXML
     private ToggleButton stockButton;
@@ -69,8 +57,12 @@ public class TorneoController {
     private ToggleButton torneoDetalleButton;
 
     @FXML
+    private ComboBox<?> torneoCombo;
+
+    @FXML
     private TableView<?> torneosTableView;
 
     @FXML
     private ToggleButton userButton;
+
 }

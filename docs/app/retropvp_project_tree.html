@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RetroPVP — Project Tree</title>
+<style>
+  body {
+    margin: 0;
+    padding: 1.5rem;
+    background: #1a1a1a;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #d4d4d4;
+  }
+  .pkg  { color: #4fc1ff; font-weight: bold; }
+  .fxml { color: #4ec9b0; }
+  .cfg  { color: #ce9178; }
+  .dim  { color: #6a9955; }
+  h2 {
+    font-family: sans-serif;
+    color: #ce9178;
+    font-size: 16px;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 6px;
+  }
+</style>
+</head>
+<body>
+<h2>RetroPVP — Maven Project Structure</h2>
+<pre>
+<span class="cfg">retropvp/</span>
+├── <span class="cfg">pom.xml</span>
+└── src/main/
+    ├── <span class="pkg">java/com/retropvp/</span>
+    │   ├── <span class="dim">MainApp.java              ← JavaFX entry point</span>
+    │   ├── <span class="pkg">config/</span>
+    │   │   └── DatabaseConfig.java
+    │   ├── <span class="pkg">model/</span>
+    │   │   ├── Usuario.java
+    │   │   ├── TipoUsuario.java
+    │   │   ├── Articulo.java
+    │   │   ├── Consola.java
+    │   │   ├── Juego.java
+    │   │   ├── Accesorio.java
+    │   │   ├── Stock.java
+    │   │   ├── Pedido.java
+    │   │   ├── ArticuloPedido.java
+    │   │   ├── Torneo.java
+    │   │   ├── Participacion.java
+    │   │   ├── Enfrentamiento.java
+    │   │   ├── Rival.java
+    │   │   └── Sala.java
+    │   ├── <span class="pkg">dao/</span>
+    │   │   ├── interfaces/
+    │   │   │   ├── IUsuarioDAO.java
+    │   │   │   ├── IArticuloDAO.java
+    │   │   │   ├── IStockDAO.java
+    │   │   │   ├── IPedidoDAO.java
+    │   │   │   ├── ITorneoDAO.java
+    │   │   │   └── IEnfrentamientoDAO.java
+    │   │   └── impl/
+    │   │       ├── UsuarioDAOImpl.java
+    │   │       ├── ArticuloDAOImpl.java
+    │   │       ├── StockDAOImpl.java
+    │   │       ├── PedidoDAOImpl.java
+    │   │       ├── TorneoDAOImpl.java
+    │   │       └── EnfrentamientoDAOImpl.java
+    │   ├── <span class="pkg">service/</span>
+    │   │   ├── AuthService.java
+    │   │   ├── StockService.java
+    │   │   └── TorneoService.java
+    │   ├── <span class="pkg">controller/</span>
+    │   │   ├── LoginController.java
+    │   │   ├── DashboardController.java
+    │   │   ├── StockController.java
+    │   │   ├── TorneoController.java
+    │   │   ├── DetallesTorneoController.java
+    │   │   └── CrearTorneoController.java
+    │   └── <span class="pkg">util/</span>
+    │       ├── SessionManager.java
+    │       ├── NavigationUtil.java
+    │       └── BracketEngine.java
+    └── resources/
+        ├── <span class="fxml">fxml/</span>
+        │   ├── login.fxml
+        │   ├── dashboard.fxml
+        │   ├── stock.fxml
+        │   ├── torneos.fxml
+        │   ├── torneo-detalle.fxml
+        │   ├── torneo-crear.fxml
+        │   └── catalogo.fxml
+        ├── css/styles.css
+        └── <span class="cfg">db.properties</span>
+</pre>
+</body>
+</html>

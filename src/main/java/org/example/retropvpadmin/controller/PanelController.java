@@ -29,4 +29,8 @@ public class PanelController {
 
     @FXML
     private Text usersText;
+
+    @FXML
+    private ToggleButton torneoDetalleButton;
+
 }

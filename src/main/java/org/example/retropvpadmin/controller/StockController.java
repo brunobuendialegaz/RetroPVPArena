@@ -68,5 +68,8 @@ public class StockController {
     private ToggleButton torneoButton;
 
     @FXML
+    private ToggleButton torneoDetalleButton;
+
+    @FXML
     private ToggleButton userButton;
 }

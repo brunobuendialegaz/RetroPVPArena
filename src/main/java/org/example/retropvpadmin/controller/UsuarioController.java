@@ -60,8 +60,12 @@ public class UsuarioController {
     private ToggleButton torneoButton;
 
     @FXML
+    private ToggleButton torneoDetalleButton;
+
+    @FXML
     private ToggleButton userButton;
 
     @FXML
     private TableView<?> userTableView;
+
 }

@@ -170,6 +170,9 @@ create table if not exists participacion(
 		on delete cascade
 	);
 
+	-- añado la fecha registro
+	ALTER TABLE participacion ADD COLUMN fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
 create table if not exists enfrentamiento(
 	id_enfrentamiento int auto_increment primary key,
 	nombre varchar(20) not null,
