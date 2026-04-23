@@ -5,6 +5,7 @@ module org.example.retropvpadmin {
     requires org.hibernate.orm.core;
     requires java.sql;
     requires java.naming;
+    requires static lombok;
 
 
     opens org.example.retropvpadmin to javafx.fxml;

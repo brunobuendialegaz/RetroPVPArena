@@ -65,4 +65,7 @@ public class TorneoDetalleController {
     @FXML
     private ToggleButton userButton;
 
+    @FXML
+    private ComboBox<?> enfrentamientoCombo;
+
 }

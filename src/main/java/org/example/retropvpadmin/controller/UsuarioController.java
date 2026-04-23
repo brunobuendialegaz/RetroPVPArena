@@ -68,4 +68,7 @@ public class UsuarioController {
     @FXML
     private TableView<?> userTableView;
 
+    @FXML
+    private TextField dniField;
+
 }

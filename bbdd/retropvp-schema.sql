@@ -6,7 +6,7 @@ CREATE DATABASE retropvp;
 
 CREATE TABLE IF NOT EXISTS tipo_usuario(
     id_tipo_usuario INT AUTO_INCREMENT PRIMARY KEY,
-    tipo VARCHAR(20) NOT NULL UNIQUE 
+    tipo ENUM('Administrador', 'Jugador') NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS usuario(
@@ -25,6 +25,11 @@ CREATE TABLE IF NOT EXISTS usuario(
     on update cascade
 );
 
+-- Añado el atributo DNI
+ALTER TABLE usuario 
+	ADD DNI VARCHAR(20) DEFAULT 'PROVISIONAL' NOT NULL UNIQUE;
+
+
 create table if not exists pedido(
 	id_pedido int auto_increment primary key,
 	id_usuario int not null,
@@ -37,6 +42,10 @@ create table if not exists pedido(
 		on delete restrict
 		on update cascade
 );
+
+-- añado estado a pedido
+ALTER TABLE pedido 
+	ADD estado ENUM('creado', 'pagado', 'preparado', 'enviado', 'entregado', 'incidencia', 'eliminado') NOT NULL DEFAULT 'creado';
 
 create table if not exists articulo(
 	id_articulo int auto_increment primary key,
@@ -133,6 +142,10 @@ create table if not exists torneo(
 	id_sala int not null,
 	id_juego int not null,
 	fecha date not null,
+
+	-- añado la columna estado a torneo
+	ALTER TABLE torneo 
+	ADD estado ENUM('creado', 'iniciado', 'terminado');
 	
 	constraint fk_torneo_usuario
 		foreign key (id_usuario)
@@ -170,7 +183,7 @@ create table if not exists participacion(
 		on delete cascade
 	);
 
-	-- añado la fecha registro
+	-- añado la fecha registro a participantes
 	ALTER TABLE participacion ADD COLUMN fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
 create table if not exists enfrentamiento(

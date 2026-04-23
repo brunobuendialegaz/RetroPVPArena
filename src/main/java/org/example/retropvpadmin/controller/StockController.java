@@ -14,7 +14,7 @@ public class StockController {
     private TextField buscadorField;
 
     @FXML
-    private TextField consolaIdField;
+    private ComboBox<?> consolaCombo;
 
     @FXML
     private RadioButton consolaRadio;

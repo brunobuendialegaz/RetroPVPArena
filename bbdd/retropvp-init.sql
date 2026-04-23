@@ -36,40 +36,40 @@ INSERT INTO articulo (nombre, precio, description) VALUES
 ('Sega VMU', 20.00, 'Tarjeta de memoria con pantalla para Dreamcast'),
 ('Super Smash Bross', 70.00, 'Increible juego de peleas con las IP de Nintendo');
 
-INSERT INTO usuario (id_tipo_usuario, nombre ,apellido, email, direccion, telefono) VALUES 
-(1,'Bruno','Buendia Legaz','bruno.buendia@gmail.com','Librilla - Murcia','697161397'),
-(2,'Maria','Gomez Sanchez','maria.gs@gmail.com','Alhama de Murcia - Murcia','612345678'),
-(2,'Juan','Perez Lopez','jperez@hotmail.com','Alcantarilla - Murcia','622334455'),
-(2,'Carmen','Martinez Ruiz','carmen.m@yahoo.es','Totana - Murcia','633445566'),
-(2,'Jose','Garcia Fernandez','jgarciaf@gmail.com','Sangonera la Verde - Murcia','644556677'),
-(2,'Ana','Navarro Diaz','ananavarro@gmail.com','El Palmar - Murcia','655667788'),
-(2,'Antonio','Romero Cavas','antonio.rc@hotmail.com','Sangonera la Seca - Murcia','666778899'),
-(2,'Laura','Vidal Marin','lvidalm@gmail.com','Mula - Murcia','677889900'),
-(2,'Francisco','Gallego Ortiz','pacogo@gmail.com','Pliego - Murcia','688990011'),
-(1,'Pablo','Tome','tomesito_pablix@empresa.com','Murcia - Murcia','699001122'),
-(1,'Dani','Meco','temeto_un_meco@gmail.com','Fuente Alamo - Murcia','600112233'),
-(2,'Isabel','Rubio Blazquez','isabelrubio@yahoo.com','Corvera - Murcia','611223344'),
-(2,'David','Ortiz Moreno','dortiz@gmail.com','Alhama de Murcia - Murcia','622334455'),
-(2,'Marta','Gimenez Ruiz','martagim@hotmail.com','Alcantarilla - Murcia','633445566'),
-(2,'Javier','Hernandez Gil','javihernandez@gmail.com','Totana - Murcia','644556677'),
-(2,'Lucia','Cano Martinez','luciacano@yahoo.es','El Palmar - Murcia','655667788'),
-(2,'Carlos','Sanchez Perez','carlossanchez@gmail.com','Sangonera la Verde - Murcia','666778899'),
-(2,'Sofia','Diaz Gomez','sofiadg@hotmail.com','Mula - Murcia','677889900'),
-(2,'Manuel','Lopez Garcia','manulopez@gmail.com','Murcia - Murcia','688990011'),
-(1,'Daniel','Villacampa','daniel.admin@empresa.com','Alhama de Murcia - Murcia','699001122'),
-(2,'Pablo','Ruiz Navarro','pabloruiz@gmail.com','Pliego - Murcia','600112233'),
-(2,'Paula','Marin Serrano','paulamarin@yahoo.com','Alcantarilla - Murcia','611223344'),
-(2,'Alejandro','Gomez Romero','alegomez@gmail.com','Corvera - Murcia','622334455'),
-(2,'Sara','Perez Vidal','sarapv@hotmail.com','Fuente Alamo - Murcia','633445566'),
-(2,'Daniel','Martinez Gallego','danielmg@gmail.com','Totana - Murcia','644556677'),
-(2,'Nerea','Garcia Molina','nereagm@yahoo.es','Sangonera la Seca - Murcia','655667788'),
-(2,'Jorge','Navarro Rubio','jorgenr@gmail.com','El Palmar - Murcia','666778899'),
-(2,'Alba','Romero Ortiz','albaro@hotmail.com','Alhama de Murcia - Murcia','677889900'),
-(2,'Diego','Vidal Gimenez','diegovg@gmail.com','Mula - Murcia','688990011'),
-(1,'Marina','Gallego Hernandez','marina.it@empresa.com','Murcia - Murcia','699001122'),
-(2,'Adrian','Serrano Cano','adriansc@gmail.com','Alcantarilla - Murcia','600112233'),
-(2,'Clara','Molina Sanchez','claramolina@yahoo.com','Totana - Murcia','611223344'),
-(2,'Ruben','Rubio Diaz','rubenrd@gmail.com','Librilla - Murcia','622334455');
+INSERT INTO usuario (id_tipo_usuario, nombre ,apellido, email, direccion, telefono, dni) VALUES 
+(1,'Bruno','Buendia Legaz','bruno.buendia@gmail.com','Librilla - Murcia','697161397','11223344S'),
+(2,'Maria','Gomez Sanchez','maria.gs@gmail.com','Alhama de Murcia - Murcia','612345678','22334455K'),
+(2,'Juan','Perez Lopez','jperez@hotmail.com','Alcantarilla - Murcia','622334455','33445566G'),
+(2,'Carmen','Martinez Ruiz','carmen.m@yahoo.es','Totana - Murcia','633445566','44556677T'),
+(2,'Jose','Garcia Fernandez','jgarciaf@gmail.com','Sangonera la Verde - Murcia','644556677','55667788P'),
+(2,'Ana','Navarro Diaz','ananavarro@gmail.com','El Palmar - Murcia','655667788','66778899V'),
+(2,'Antonio','Romero Cavas','antonio.rc@hotmail.com','Sangonera la Seca - Murcia','666778899','77889900H'),
+(2,'Laura','Vidal Marin','lvidalm@gmail.com','Mula - Murcia','677889900','88990011C'),
+(2,'Francisco','Gallego Ortiz','pacogo@gmail.com','Pliego - Murcia','688990011','99001122S'),
+(1,'Pablo','Tome','tomesito_pablix@empresa.com','Murcia - Murcia','699001122','10293847C'),
+(1,'Dani','Meco','temeto_un_meco@gmail.com','Fuente Alamo - Murcia','600112233','56473829L'),
+(2,'Isabel','Rubio Blazquez','isabelrubio@yahoo.com','Corvera - Murcia','611223344','82736451B'),
+(2,'David','Ortiz Moreno','dortiz@gmail.com','Alhama de Murcia - Murcia','622334455','91827364P'),
+(2,'Marta','Gimenez Ruiz','martagim@hotmail.com','Alcantarilla - Murcia','633445566','37485960M'),
+(2,'Javier','Hernandez Gil','javihernandez@gmail.com','Totana - Murcia','644556677','28394051X'),
+(2,'Lucia','Cano Martinez','luciacano@yahoo.es','El Palmar - Murcia','655667788','65748392M'),
+(2,'Carlos','Sanchez Perez','carlossanchez@gmail.com','Sangonera la Verde - Murcia','666778899','49586730A'),
+(2,'Sofia','Diaz Gomez','sofiadg@hotmail.com','Mula - Murcia','677889900','15263748W'),
+(2,'Manuel','Lopez Garcia','manulopez@gmail.com','Murcia - Murcia','688990011','74839201E'),
+(1,'Daniel','Villacampa','daniel.admin@empresa.com','Alhama de Murcia - Murcia','699001122','59607182T'),
+(2,'Pablo','Ruiz Navarro','pabloruiz@gmail.com','Pliego - Murcia','600112233','31425364X'),
+(2,'Paula','Marin Serrano','paulamarin@yahoo.com','Alcantarilla - Murcia','611223344','85940312F'),
+(2,'Alejandro','Gomez Romero','alegomez@gmail.com','Corvera - Murcia','622334455','60718293Q'),
+(2,'Sara','Perez Vidal','sarapv@hotmail.com','Fuente Alamo - Murcia','633445566','27384950R'),
+(2,'Daniel','Martinez Gallego','danielmg@gmail.com','Totana - Murcia','644556677','94051627Y'),
+(2,'Nerea','Garcia Molina','nereagm@yahoo.es','Sangonera la Seca - Murcia','655667788','48576920M'),
+(2,'Jorge','Navarro Rubio','jorgenr@gmail.com','El Palmar - Murcia','666778899','19283746L'),
+(2,'Alba','Romero Ortiz','albaro@hotmail.com','Alhama de Murcia - Murcia','677889900','50617283R'),
+(2,'Diego','Vidal Gimenez','diegovg@gmail.com','Mula - Murcia','688990011','73849506S'),
+(1,'Marina','Gallego Hernandez','marina.it@empresa.com','Murcia - Murcia','699001122','32415067N'),
+(2,'Adrian','Serrano Cano','adriansc@gmail.com','Alcantarilla - Murcia','600112233','81920374V'),
+(2,'Clara','Molina Sanchez','claramolina@yahoo.com','Totana - Murcia','611223344','46573829F'),
+(2,'Ruben','Rubio Diaz','rubenrd@gmail.com','Librilla - Murcia','622334455','90123456F');
 
 INSERT INTO stock (id_articulo, cantidad ) VALUES 
 (1, 15),
@@ -182,10 +182,12 @@ INSERT INTO articulo_pedido (id_articulo, id_pedido, unidades) VALUES
 (21, 14, 1),
 (13, 15, 1);
 
-INSERT INTO torneo (id_torneo, id_usuario, id_sala, id_juego, fecha) VALUES
-(1, 1, 1, 14, '2026-05-15 10:00:00'),
-(2, 10, 2, 11, '2026-06-20 17:00:00'),
-(3, 20, 1, 26, '2026-07-10 12:00:00');
+INSERT INTO torneo (id_torneo, id_usuario, id_sala, id_juego, fecha, estado) VALUES
+(1, 1, 1, 14, '2026-05-15 10:00:00', 'terminado'),
+(2, 10, 2, 11, '2026-06-20 17:00:00', 'terminado'),
+(3, 20, 1, 26, '2026-07-10 12:00:00', 'creado');
+
+'creado', 'iniciado', 'terminado'
 
 INSERT INTO participacion (id_torneo, id_usuario) VALUES
 (1, 2),
