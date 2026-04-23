@@ -1,0 +1,125 @@
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px var(--container-padding);
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.tarjeta-torneo {
+    display: grid;
+    grid-template-areas:
+        "titulo titulo"
+        "imagen contenido";
+    grid-template-columns: 250px 1fr;
+    gap: 20px;
+    border: var(--border-pixel);
+    border-radius: var(--radius);
+    padding: var(--container-padding);
+    box-shadow: var(--shadow-retro);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-torneo:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 0 20px var(--accent-1);
+}
+
+.tarjeta-torneo:nth-child(even) {
+    grid-template-areas:
+        "titulo titulo"
+        "contenido imagen";
+    grid-template-columns: 1fr 250px;
+}
+
+.tarjeta-torneo:nth-child(even) div {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.tarjeta-torneo h2 {
+    grid-area: titulo;
+    text-align: center;
+    font-size: 2rem;
+    margin: 0;
+    padding-bottom: 15px;
+    border-bottom: 2px dashed var(--accent-1);
+    text-shadow: 0 0 5px var(--accent-1);
+}
+
+.tarjeta-torneo img {
+    grid-area: imagen;
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    object-fit: cover;
+    border: 1px solid var(--accent-1);
+    border-radius: var(--radius);
+}
+
+.tarjeta-torneo div {
+    grid-area: contenido;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.tarjeta-torneo h3 {
+    margin: 0;
+    color: var(--accent-2);
+    font-size: 1.3rem;
+}
+
+.tarjeta-torneo p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.tarjeta-torneo strong {
+    color: var(--accent-1);
+}
+
+.tarjeta-torneo a {
+    background-color: var(--accent-1);
+    color: var(--bg-color);
+    border: 1px solid var(--accent-1);
+    border-radius: var(--radius);
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.tarjeta-torneo a:hover {
+    background-color: transparent;
+    color: var(--accent-1);
+    box-shadow: 0 0 10px var(--accent-1);
+}
+
+@media (max-width: 768px) {
+    .tarjeta-torneo, 
+    .tarjeta-torneo:nth-child(even) {
+        grid-template-areas:
+            "titulo"
+            "imagen"
+            "contenido";
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+
+    .tarjeta-torneo img {
+        height: 200px; /* Altura fija para móvil */
+    }
+
+    /* Forzamos que todo se centre en móvil, rompiendo el zig-zag */
+    .tarjeta-torneo div, 
+    .tarjeta-torneo:nth-child(even) div {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .tarjeta-torneo h2 {
+        font-size: 1.5rem;
+    }
+}

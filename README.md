@@ -43,13 +43,18 @@ asi como tener acceso a material de otra epoca a traves de nuestra tienda perdid
 
 ## 🚀 Estado del Proyecto
 
-Actualmente nos encontramos en el **Sprint 1: Cimientos**.
+Actualmente nos encontramos en el **Sprint 2: BBDD, diseño web y APP administración**.
 
 - [x] **GIT-01:** Setup del Repo
 - [x] **AN-01:** Definición de Stack Tecnológico (Java 17, JavaFX, MySQL, JDBC, HTML/CSS).
 - [x] **BBDD-01:** Diagrama E/R
-- [ ] **WEB-01:** Maquetación de Landing Page.
+- [x] **WEB-01:** Maquetación de Landing Page.
 - [ ] **APP-01:** Modelado POO
 - [x] **BBDD-02** Creación de la bbdd
+- [ ] **BBDD-04 (🟡):** Desarrollo de consultas SQL críticas (Stock, inscritos por torneo) [cite: 132-140].
+- [ ] **WEB-02 (🟡):** Página de Catálogo con grid responsive de productos[cite: 235, 258].
+- [ ] **WEB-03 (🟡):** Página de Torneos con detalle de eventos. 
+- [ ] **APP-02 (🔴):** Conexión JDBC: Implementación de la lógica de conexión a MySQL [cite: 322-327].
 
 Puedes consultar el Backlog detallado [aquí](./docs/backlog.md).
+Puedes consultar los requisitos de sistema [aquí](./docs/SI/requisitosSO.md)

@@ -1,0 +1,90 @@
+.tarjetas {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: var(--container-padding);
+}
+
+.div-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--container-padding);
+    padding: var(--container-padding);
+    justify-items: center;
+}
+
+
+.tarjeta {
+    width: 280px;
+    min-height: 350px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: var(--border-pixel);
+    border-radius: var(--radius);
+    padding: var(--container-padding);
+    gap: 5px;
+    box-shadow: var(--shadow-retro);
+    transition: all 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px) scale(1.01);
+    background-color: var(--accent-1);
+    color: var(--bg-color);
+    box-shadow: 0 0 10px var(--accent-1);
+}
+
+.tarjeta:hover h3 {
+    color: var(--bg-color); 
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid var(--accent-1);
+    border-radius: var(--radius);
+}
+
+.tarjeta:hover img {
+    border: 1px solid var(--bg-color);
+}
+
+.precio {
+    color: var(--accent-2);
+}
+
+.cargar-mas {
+    width: 150px;
+    min-width: 120px;
+    background-color: var(--accent-1);
+    color: var(--bg-color);
+    border: 1px solid var(--accent-1);
+    border-radius: var(--radius);
+    font-family: var(--font-retro), sans-serif;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.cargar-mas:hover {
+    cursor: pointer;
+    background-color: var(--bg-color);
+    color: var(--accent-1);
+    box-shadow: 0 0 15px var(--accent-1);
+}
+
+@media (max-width: 970px) {
+    .div-grid {
+    grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 660px) {
+    .div-grid {
+    grid-template-columns: repeat(1, 1fr);
+    }
+}

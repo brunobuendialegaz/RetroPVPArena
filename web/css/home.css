@@ -1,0 +1,276 @@
+.hero{
+    min-height: 60vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 8%;
+    background-image: url(../assets/img/fondo-azul-pikachu-mario-Photoroom.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.hero .glass {
+    background: rgba(13, 13, 21, 0.7); 
+    backdrop-filter: blur(8px); 
+    padding: var(--container-padding);
+    border-radius: var(--radius);
+    border: var(--border-pixel);
+    max-width: 90%;
+}
+
+.carrusel-seccion {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.carrusel {
+    margin-top: var(--container-padding);
+    display: flex;
+    gap: var(--container-padding);
+    width: max-content;
+    animation: scroll-infinito 15s linear infinite;
+}
+
+.carrusel a {
+    text-decoration: none; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tarjeta {
+    width: 280px;
+    min-height: 350px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: var(--border-pixel);
+    border-radius: var(--radius);
+    padding: var(--container-padding);
+    gap: 5px;
+    box-shadow: var(--shadow-retro);
+    transition: all 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px) scale(1.01);
+    background-color: var(--accent-1);
+    color: var(--bg-color);
+    box-shadow: 0 0 10px var(--accent-1);
+}
+
+.tarjeta:hover h3 {
+    color: var(--bg-color); 
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid var(--accent-1);
+    border-radius: var(--radius);
+}
+
+.tarjeta:hover img {
+    border: 1px solid var(--bg-color);
+}
+
+.precio {
+    color: var(--accent-2);
+}
+
+.about-form {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.flex-about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: space-around;
+    padding: var(--container-padding);
+    border: var(--border-pixel);
+    border-radius: var(--radius);
+    gap: var(--container-padding);
+}
+
+.flex-about > * {
+    flex: 1 1 45%; 
+    min-width: 300px; 
+}
+
+.about {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--container-padding);
+    padding: 10px;
+}
+
+.about h3 {
+    margin: 0;
+    text-shadow: 0 0 5px var(--accent-1);
+}
+
+.about p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.about p span {
+    color: var(--accent-1);
+    font-weight: bold;
+}
+
+.about a {
+    width: 25%;
+    text-decoration: none;
+    background-color: var(--accent-1);
+    color: var(--bg-color);
+    border: 1px solid var(--accent-1);
+    border-radius: var(--radius);
+    padding: 8px 16px;
+    font-family: var(--font-retro);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+.about a:hover, 
+.about a:focus {
+    background-color: transparent;
+    color: var(--accent-1);
+    box-shadow: 0 0 10px var(--accent-1);
+    outline: none;
+}
+
+.contacto {
+    display: flex;
+    flex-direction: column;
+    gap: var(--container-padding);
+    align-items: center;
+}
+
+.form-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    gap: var(--container-padding);
+}
+
+.form-contacto input, .form-contacto textarea {
+    text-align: center;
+    padding: 4px;
+    font-family: var(--font-retro);
+    width: 100%;
+    background-color: var(--text-color);
+    border: 1px solid var(--accent-1);
+    border-radius: var(--radius);
+    box-sizing: border-box;
+}
+
+.form-contacto textarea {
+    resize: none;
+    height: 150px;
+}
+
+.form-contacto button {
+    width: 25%;
+    min-width: 120px;
+    background-color: var(--accent-1);
+    color: var(--bg-color);
+    border: 1px solid var(--accent-1);
+    border-radius: var(--radius);
+    font-family: var(--font-retro), sans-serif;
+    padding: 5px;
+}
+
+.form-contacto input, .form-contacto textarea, .form-contacto button {
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-contacto input:focus, 
+.form-contacto textarea:focus {
+    color: var(--accent-1);
+    border-color: var(--accent-1);
+    box-shadow: 0 0 10px var(--accent-1);
+    background-color: var(--bg-color);
+}
+
+.form-contacto button:focus,
+.form-contacto button:hover {
+    cursor: pointer;
+    background-color: var(--bg-color);
+    color: var(--accent-1);
+    box-shadow: 0 0 15px var(--accent-1);
+}
+
+
+@media (max-width: 1024px) {
+    .carrusel-seccion {
+        overflow: visible;
+    }
+    .carrusel {
+        animation: none;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--container-padding);
+        width: 100%;
+        justify-items: center;
+    }
+    .tarjeta-rep {
+    display: none;
+}
+}
+
+@media (max-width: 650px) {
+    .carrusel {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta {
+        width: 90%;
+        max-width: 280px;
+    }
+
+    .hero {
+        padding-left: 0;
+        justify-content: center;
+    }
+
+
+    .hero .glass {
+        width: 90%;
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+}
+
+@keyframes scroll-infinito {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - (var(--container-padding) / 2)));
+    }
+}

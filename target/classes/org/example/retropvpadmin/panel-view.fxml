@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retropvpadmin.controller.PanelController">
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RetroPVPArena" />
+            <ToggleButton fx:id="panelButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Panel" />
+            <ToggleButton fx:id="userButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Usuario" />
+            <ToggleButton fx:id="stockButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Stock" />
+            <ToggleButton fx:id="torneoButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Torneos" />
+            <ToggleButton fx:id="torneoDetalleButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="TorneoDetalles" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuarios registrados" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Articulos en catalogo" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stock bajo (&lt;2 uds)" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Torneos pendientes" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Text fx:id="usersText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.halignment="CENTER" />
+            <Text fx:id="articlesText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Text fx:id="stockText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Text fx:id="torneoText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+   </center>
+   <top>
+      <HBox prefHeight="33.0" prefWidth="592.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Resumen General" textOrigin="BOTTOM" translateX="200.0" />
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
