@@ -11,7 +11,6 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-@AllArgsConstructor
 public class ArticuloPedido  implements java.io.Serializable {
 
 

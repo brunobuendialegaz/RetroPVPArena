@@ -16,7 +16,6 @@ import java.util.Set;
  */
 @Setter
 @Getter
-@AllArgsConstructor
 public class Pedido  implements java.io.Serializable {
 
 

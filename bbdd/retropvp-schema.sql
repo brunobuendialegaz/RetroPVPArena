@@ -146,6 +146,9 @@ create table if not exists torneo(
 	-- añado la columna estado a torneo
 	ALTER TABLE torneo 
 	ADD estado ENUM('creado', 'iniciado', 'terminado');
+	-- tambien columna nombre 
+	ALTER TABLE torneo 
+	ADD nombre varchar(20) default 'torneo_X' not null;
 	
 	constraint fk_torneo_usuario
 		foreign key (id_usuario)

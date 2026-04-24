@@ -17,7 +17,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-@AllArgsConstructor
 public class Torneo  implements java.io.Serializable {
 
 

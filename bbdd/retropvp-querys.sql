@@ -82,4 +82,63 @@ select a.*, j.id_consola, j.jugadores_pvp  from articulo a
 	inner join juego j on j.id_articulo = a.id_articulo 
 	where j.jugadores_pvp > 0;
 
--- 
+-- Consultas panel torneos detalle
+    -- listado de enfrentamientos con rivales
+
+SELECT 
+    t.nombre AS nombre_torneo, 
+    a.nombre AS nombre_juego, 
+    e.nombre AS nombre_enfrentamiento,
+    MAX(CASE WHEN p.numero_jugador = 1 THEN p.nombre_usuario END) AS nombre_usuario_1,
+    MAX(CASE WHEN p.numero_jugador = 2 THEN p.nombre_usuario END) AS nombre_usuario_2,
+    MAX(CASE WHEN p.numero_jugador = 3 THEN p.nombre_usuario END) AS nombre_usuario_3,
+    MAX(CASE WHEN p.numero_jugador = 4 THEN p.nombre_usuario END) AS nombre_usuario_4
+    FROM (
+    -- Subconsulta para numerar a los rivales del 1 al 4 dentro de cada enfrentamiento
+        SELECT 
+            r.id_torneo,
+            r.id_enfrentamiento,
+            u.nombre AS nombre_usuario,
+            ROW_NUMBER() OVER(PARTITION BY r.id_torneo, r.id_enfrentamiento ORDER BY r.id_usuario) AS numero_jugador
+        FROM rival r
+        JOIN usuario u ON r.id_usuario = u.id_usuario
+    ) p
+    JOIN enfrentamiento e ON p.id_enfrentamiento = e.id_enfrentamiento
+    JOIN torneo t ON p.id_torneo = t.id_torneo
+    JOIN articulo a ON t.id_juego = a.id_articulo
+    where t.id_torneo = 1
+    GROUP BY 
+        t.id_torneo, 
+        a.nombre, 
+        e.id_enfrentamiento, 
+        e.nombre;
+
+    -- Enfrentamientos por torneo solo id/nombre
+
+SELECT 
+	t.id_torneo AS id_torneo,
+    t.nombre AS nombre_torneo, 
+    e.id_enfrentamiento as id_enfrentamiento,
+    e.nombre as nombre_enfrentamiento
+    FROM torneo t
+    JOIN rival r ON r.id_torneo = t.id_torneo
+    JOIN enfrentamiento e ON e.id_enfrentamiento = r.id_enfrentamiento
+    where t.id_torneo = 1
+    GROUP BY 
+        t.id_torneo, 
+        e.id_enfrentamiento;
+
+    -- rivales por enfrentamiento
+
+SELECT
+	e.id_enfrentamiento as id_enfrentamiento,
+	e.nombre as enfrentamiento,
+	r.id_usuario as id_usuario,
+	u.nombre as nombre_usuario
+	FROM rival r
+	JOIN enfrentamiento e ON r.id_enfrentamiento = e.id_enfrentamiento 
+	JOIN usuario u ON r.id_usuario = u.id_usuario 
+	WHERE r.id_enfrentamiento = 4
+	GROUP BY r.id_usuario,
+    e.id_enfrentamiento 
+

@@ -14,7 +14,6 @@ import java.util.Set;
  */
 @Setter
 @Getter
-@AllArgsConstructor
 public class Enfrentamiento  implements java.io.Serializable {
 
 

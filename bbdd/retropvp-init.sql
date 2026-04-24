@@ -182,12 +182,11 @@ INSERT INTO articulo_pedido (id_articulo, id_pedido, unidades) VALUES
 (21, 14, 1),
 (13, 15, 1);
 
-INSERT INTO torneo (id_torneo, id_usuario, id_sala, id_juego, fecha, estado) VALUES
-(1, 1, 1, 14, '2026-05-15 10:00:00', 'terminado'),
-(2, 10, 2, 11, '2026-06-20 17:00:00', 'terminado'),
-(3, 20, 1, 26, '2026-07-10 12:00:00', 'creado');
+INSERT INTO torneo (id_torneo, id_usuario, id_sala, id_juego, fecha, estado, nombre) VALUES
+(1, 1, 1, 14, '2026-05-15 10:00:00', 'terminado', 'SF II week'),
+(2, 10, 2, 11, '2026-06-20 17:00:00', 'terminado', 'Tetris PVP'),
+(3, 20, 1, 26, '2026-07-10 12:00:00', 'creado', 'SSB championship');
 
-'creado', 'iniciado', 'terminado'
 
 INSERT INTO participacion (id_torneo, id_usuario) VALUES
 (1, 2),

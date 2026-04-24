@@ -15,7 +15,6 @@ import java.util.Set;
  */
 @Setter
 @Getter
-@AllArgsConstructor
 public class Consola  implements java.io.Serializable {
 
 

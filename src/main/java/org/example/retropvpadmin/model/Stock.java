@@ -11,7 +11,6 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-@AllArgsConstructor
 public class Stock  implements java.io.Serializable {
 
 

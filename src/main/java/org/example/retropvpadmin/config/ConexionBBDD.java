@@ -8,7 +8,7 @@ public class ConexionBBDD {
 
         private static Connection connection;
 
-        public static Connection getConnection() throws SQLException{
+        public static Connection getConnection(){
             if (connection == null) {
                 createConnection();
             }

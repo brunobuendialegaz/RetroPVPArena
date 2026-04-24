@@ -1,14 +1,11 @@
 module org.example.retropvpadmin {
     requires javafx.controls;
     requires javafx.fxml;
-    requires jakarta.persistence;
-    requires org.hibernate.orm.core;
     requires java.sql;
     requires java.naming;
     requires static lombok;
 
-
-    opens org.example.retropvpadmin to javafx.fxml;
-    opens org.example.retropvpadmin.model to org.hibernate.orm.core;
+    opens org.example.retropvpadmin.controller to javafx.fxml;
+    opens org.example.retropvpadmin.model;
     exports org.example.retropvpadmin;
 }

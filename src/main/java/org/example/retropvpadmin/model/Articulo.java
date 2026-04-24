@@ -15,7 +15,6 @@ import java.util.Set;
  */
 @Setter
 @Getter
-@AllArgsConstructor
 public class Articulo  implements java.io.Serializable {
 
 

@@ -15,7 +15,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-@AllArgsConstructor
 public class TipoUsuario  implements java.io.Serializable {
 
 
