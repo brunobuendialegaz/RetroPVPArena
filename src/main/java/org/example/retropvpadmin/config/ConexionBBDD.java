@@ -8,7 +8,7 @@ public class ConexionBBDD {
 
         private static Connection connection;
 
-        public static Connection getConnection(){
+        public static Connection getConnection() throws NullPointerException{
             if (connection == null) {
                 createConnection();
             }

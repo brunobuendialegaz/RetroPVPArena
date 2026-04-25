@@ -12,4 +12,27 @@ public interface SchemDB {
     String U_DIRECCION = "direccion";
     String U_TLF = "telefono";
     String U_DNI = "DNI";
+
+    //tabla Stock
+    String TAB_STOCK = "stock";
+    String ID_STOCK = "id_stock";
+    String ID_ARTICULO = "id_articulo";
+    String S_CANTIDAD = "cantidad";
+
+    //tabla articulo
+    String TAB_ARTICULO = "articulo";
+    String A_NOMBRE = "nombre";
+    String A_PRECIO = "precio";
+    String A_DESCRIPCION = "description";
+
+    //tabla torneo
+    String TAB_TORNEO = "torneo";
+    String ID_TORNEO = "id_torneo";
+    String ID_SALA = "id_sala";
+    String ID_JUEGO = "id_juego";
+    String T_FECHA = "fecha";
+    String T_ESTADO = "estado";
+    String T_NOMBRE = "nombre";
+
+
 }

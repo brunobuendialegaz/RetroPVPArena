@@ -1,9 +1,14 @@
 package org.example.retropvpadmin.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import org.example.retropvpadmin.service.Navegacion;
 
-public class StockController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class StockController implements Initializable {
     @FXML
     private RadioButton accesorioRadio;
 
@@ -72,4 +77,33 @@ public class StockController {
 
     @FXML
     private ToggleButton userButton;
+
+    @FXML
+    private ToggleButton salirButton;
+
+    private Navegacion nav;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        initGUI();
+        instances();
+        actions();
+    }
+
+    private void initGUI() {
+
+    }
+
+    private void instances() {
+        nav = new Navegacion();
+    }
+
+    private void actions() {
+        panelButton.setOnAction(nav::irAPanel);
+        userButton.setOnAction(nav::irAUsuario);
+        stockButton.setOnAction(nav::irAStock);
+        torneoDetalleButton.setOnAction(nav::irATorneo);
+        torneoButton.setOnAction(nav::irATorneoDet);
+        salirButton.setOnAction(nav::irALogin);
+    }
 }

@@ -11,10 +11,10 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-public class Accesorio  implements java.io.Serializable {
+public class Accesorio extends Articulo implements java.io.Serializable {
 
 
-     private int idArticulo;
+     private Integer idArticulo;
      private Consola consola;
      private Articulo articulo;
 

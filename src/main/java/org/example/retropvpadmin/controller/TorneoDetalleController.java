@@ -1,9 +1,14 @@
 package org.example.retropvpadmin.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import org.example.retropvpadmin.service.Navegacion;
 
-public class TorneoDetalleController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class TorneoDetalleController implements Initializable {
 
     @FXML
     private TextField buscadorField;
@@ -68,4 +73,32 @@ public class TorneoDetalleController {
     @FXML
     private ComboBox<?> enfrentamientoCombo;
 
+    @FXML
+    private ToggleButton salirButton;
+
+    private Navegacion nav;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        initGUI();
+        instances();
+        actions();
+    }
+
+    private void initGUI() {
+
+    }
+
+    private void instances() {
+        nav = new Navegacion();
+    }
+
+    private void actions() {
+        panelButton.setOnAction(nav::irAPanel);
+        userButton.setOnAction(nav::irAUsuario);
+        stockButton.setOnAction(nav::irAStock);
+        torneoDetalleButton.setOnAction(nav::irATorneo);
+        torneoButton.setOnAction(nav::irATorneoDet);
+        salirButton.setOnAction(nav::irALogin);
+    }
 }

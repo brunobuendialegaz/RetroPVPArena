@@ -15,7 +15,7 @@ import java.util.Set;
  */
 @Setter
 @Getter
-public class Articulo  implements java.io.Serializable {
+public class Articulo implements java.io.Serializable {
 
 
      private Integer idArticulo;

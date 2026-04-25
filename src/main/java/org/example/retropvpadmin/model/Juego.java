@@ -15,10 +15,10 @@ import java.util.Set;
  */
 @Setter
 @Getter
-public class Juego  implements java.io.Serializable {
+public class Juego extends Articulo implements java.io.Serializable {
 
 
-     private int idArticulo;
+     private Integer idArticulo;
      private Consola consola;
      private Articulo articulo;
      private Date anioLanzamiento;

@@ -4,6 +4,7 @@ import org.example.retropvpadmin.config.ConexionBBDD;
 import org.example.retropvpadmin.config.SchemDB;
 import org.example.retropvpadmin.dao.interfaces.IUsuarioDao;
 import org.example.retropvpadmin.model.Usuario;
+import org.example.retropvpadmin.util.ControlSesion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -39,7 +40,9 @@ public class UsuarioDaoImpl implements IUsuarioDao {
                 String direccion = resultSet.getString(SchemDB.U_DIRECCION);
                 String telefono = resultSet.getString(SchemDB.U_TLF);
                 String DNI = resultSet.getString(SchemDB.U_DNI);
-                return new Usuario(id, idTipo, nombre, apellido, email, direccion, telefono, DNI);
+                Usuario usuario = new Usuario(id, idTipo, nombre, apellido, email, direccion, telefono, DNI);
+                ControlSesion.getInstance().setUsuarioActivo(usuario);
+                return usuario;
             }
         } catch (SQLException e) {
             System.out.println("Error en la consulta");
@@ -50,6 +53,17 @@ public class UsuarioDaoImpl implements IUsuarioDao {
 
     @Override
     public long totalUsuarios() {
+        String query = String.format("select count(*) as total from %s;", SchemDB.TAB_USUARIO);
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()){
+                return resultSet.getInt("total");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al conectar con la base de datos");
+            System.out.println(e.getMessage());
+        }
         return 0;
     }
 

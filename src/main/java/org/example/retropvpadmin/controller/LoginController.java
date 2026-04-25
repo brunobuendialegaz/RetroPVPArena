@@ -2,10 +2,15 @@ package org.example.retropvpadmin.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.example.retropvpadmin.dao.impl.UsuarioDaoImpl;
+import org.example.retropvpadmin.dao.interfaces.IUsuarioDao;
 import org.example.retropvpadmin.model.Usuario;
+import org.example.retropvpadmin.service.AuthService;
+import org.example.retropvpadmin.service.Navegacion;
+import org.example.retropvpadmin.util.ControlSesion;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,7 +26,9 @@ public class LoginController implements Initializable {
     @FXML
     private TextField passField;
 
-    private UsuarioDaoImpl usuarioDao;
+    private AuthService service;
+
+    private Navegacion nav;
 
 
     @Override
@@ -31,23 +38,22 @@ public class LoginController implements Initializable {
     }
 
     private void instances() {
-        usuarioDao = new UsuarioDaoImpl();
+        service = new AuthService();
+        nav = new Navegacion();
     }
 
     private void actions() {
         logInButton.setOnAction(event -> {
             String email = emailField.getText();
             String pass = passField.getText();
-            Usuario user = usuarioDao.checkLogin(email,pass);
-            if (user!=null){
-                System.out.println("Login correcto");
-                System.out.println(user.getNombre());
-                System.out.println(user.getApellido());
-                System.out.println(user.getDNI());
-                System.out.println(user.getEmail());
-                System.out.println(user.getNombre());
+            Usuario user = service.getDao().checkLogin(email,pass);
+            if (user!=null&&user.getTipoUsuario()==1){
+                nav.irAPanel(event);
             } else {
-                System.out.println("Datos de acceso incorrectos");
+                Alert dialogPane = new Alert(Alert.AlertType.ERROR);
+                dialogPane.setHeaderText("Error");
+                dialogPane.setContentText("Datos de acceso no validos.");
+                dialogPane.show();
             }
         });
     }
