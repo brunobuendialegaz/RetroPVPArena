@@ -36,10 +36,11 @@
    <top>
       <HBox prefHeight="31.0" prefWidth="588.0" BorderPane.alignment="CENTER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Torneo:" textOrigin="BOTTOM" translateX="200.0" />
+            <Text fx:id="nombreUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Torneo:" textOrigin="BOTTOM" translateX="300.0" />
             <ComboBox fx:id="torneoCombo" prefWidth="150.0">
                <HBox.margin>
-                  <Insets left="250.0" />
+                  <Insets left="350.0" />
                </HBox.margin>
             </ComboBox>
          </children>

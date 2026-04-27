@@ -5,6 +5,7 @@ module org.example.retropvpadmin {
     requires java.naming;
     requires static lombok;
     requires java.desktop;
+    requires com.sun.jna.platform;
 
     opens org.example.retropvpadmin.controller to javafx.fxml;
     opens org.example.retropvpadmin.model;

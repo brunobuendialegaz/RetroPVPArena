@@ -3,7 +3,9 @@ package org.example.retropvpadmin.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import org.example.retropvpadmin.service.Navegacion;
+import org.example.retropvpadmin.util.ControlSesion;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -76,17 +78,20 @@ public class TorneoDetalleController implements Initializable {
     @FXML
     private ToggleButton salirButton;
 
+    @FXML
+    private Text nombreUser;
+
     private Navegacion nav;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initGUI();
         instances();
+        initGUI();
         actions();
     }
 
     private void initGUI() {
-
+        nombreUser.setText(ControlSesion.getInstance().getUsuarioActivo().getNombre()+" "+ControlSesion.getInstance().getUsuarioActivo().getApellido());
     }
 
     private void instances() {

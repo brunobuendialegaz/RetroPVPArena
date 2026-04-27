@@ -11,6 +11,7 @@ import org.example.retropvpadmin.dao.interfaces.IStockDao;
 import org.example.retropvpadmin.dao.interfaces.ITorneoDao;
 import org.example.retropvpadmin.dao.interfaces.IUsuarioDao;
 import org.example.retropvpadmin.service.Navegacion;
+import org.example.retropvpadmin.util.ControlSesion;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -47,6 +48,9 @@ public class PanelController implements Initializable {
     @FXML
     private ToggleButton salirButton;
 
+    @FXML
+    private Text nombreUser;
+
     private Navegacion nav;
 
     private IUsuarioDao usuarioDao;
@@ -63,6 +67,7 @@ public class PanelController implements Initializable {
     }
 
     private void initGUI() {
+        nombreUser.setText(ControlSesion.getInstance().getUsuarioActivo().getNombre()+" "+ControlSesion.getInstance().getUsuarioActivo().getApellido());
         usersText.setText(String.valueOf(usuarioDao.totalUsuarios()));
         articlesText.setText(String.valueOf(stockDao.articulosCatalogo()));
         stockText.setText(String.valueOf(stockDao.articulosStockBajo()));

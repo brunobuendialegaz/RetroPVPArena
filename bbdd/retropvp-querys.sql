@@ -1,7 +1,7 @@
 -- consulta para el login, traigo el dato correo y dni de un usuario.
 
 select email, dni from usuario 
-    where email = 'bruno.buendia@gmail.com';
+    where email = 'bruno.buendia@gmail.com' and dni = '48704962r';
 
 -- también traigo el usuario completo para integrarlo en la aplicación y llevar el login
 
@@ -32,7 +32,7 @@ select count(distinct a.id_articulo) as articulos_stock_bajo
 
 select count(distinct t.id_torneo ) as torneos_pendientes
     from torneo t 
-    where t.estado <> 'terminado';
+    where t.estado <> 'terminado';S
 
 -- consultas panel usuario
     -- listado de todos los usuarios

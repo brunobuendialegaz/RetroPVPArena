@@ -28,8 +28,6 @@ public class LoginController implements Initializable {
 
     private AuthService service;
 
-    private Navegacion nav;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -39,22 +37,13 @@ public class LoginController implements Initializable {
 
     private void instances() {
         service = new AuthService();
-        nav = new Navegacion();
     }
 
     private void actions() {
         logInButton.setOnAction(event -> {
             String email = emailField.getText();
             String pass = passField.getText();
-            Usuario user = service.getDao().checkLogin(email,pass);
-            if (user!=null&&user.getTipoUsuario()==1){
-                nav.irAPanel(event);
-            } else {
-                Alert dialogPane = new Alert(Alert.AlertType.ERROR);
-                dialogPane.setHeaderText("Error");
-                dialogPane.setContentText("Datos de acceso no validos.");
-                dialogPane.show();
-            }
+            service.login(event, email, pass);
         });
     }
 }

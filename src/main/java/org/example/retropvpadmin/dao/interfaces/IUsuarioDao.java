@@ -12,6 +12,9 @@ public interface IUsuarioDao {
 
     List<Usuario> listarUsuarios();
 
-    boolean checkDNI();
+    int checkDNI(String dni);
 
+    boolean crearUsuario(long tipoUsuario, String nombre, String apellido, String email, String direccion, String telefono, String DNI);
+
+    boolean actualizarUsuario(long tipoUsuario, String nombre, String apellido, String email, String direccion, String telefono, String DNI);
 }
