@@ -2,7 +2,7 @@
 
 INSERT INTO tipo_usuario (id_tipo_usuario, tipo) VALUES 
 (1, 'Administrador'),
-(2, 'Jugador'),
+(2, 'Jugador');
 
 INSERT INTO sala (nombre, tamanio) VALUES
 ('sala principal', 32),
@@ -96,7 +96,8 @@ INSERT INTO stock (id_articulo, cantidad ) VALUES
 (22, 2),
 (23, 9),
 (24, 0),
-(25, 12);
+(25, 12),
+(26, 10);;
 
 INSERT INTO consola (id_articulo, anio_lanzamiento) VALUES
 (1, 1990),
@@ -130,22 +131,22 @@ INSERT INTO accesorio (id_articulo, id_consola) VALUES
 (24, 5),
 (25, 7);
 
-INSERT INTO pedido (id_pedido, id_usuario, fecha, importe) VALUES
-(1, 2, '2025-03-15', 95.98),
-(2, 10, '2025-04-20', 115.00),
-(3, 5, '2025-06-11', 75.00),
-(4, 12, '2025-08-05', 205.89),
-(5, 25, '2025-09-22', 110.00),
-(6, 30, '2025-10-14', 215.00),
-(7, 3, '2025-11-03', 80.50),
-(8, 15, '2025-11-25', 80.00),
-(9, 22, '2025-12-10', 65.00),
-(10, 7, '2026-01-08', 95.50),
-(11, 33, '2026-01-15', 129.99),
-(12, 1, '2026-02-02', 157.40),
-(13, 19, '2026-02-28', 162.00),
-(14, 11, '2026-03-10', 55.00),
-(15, 28, '2026-04-05', 50.00);
+INSERT INTO pedido (id_pedido, id_usuario, fecha, importe, estado) VALUES
+(1,  2,  '2025-03-15', 95.98,  'entregado'),
+(2,  10, '2025-04-20', 115.00, 'entregado'),
+(3,  5,  '2025-06-11', 75.00,  'incidencia'),
+(4,  12, '2025-08-05', 205.89, 'entregado'),
+(5,  25, '2025-09-22', 110.00, 'eliminado'),
+(6,  30, '2025-10-14', 215.00, 'entregado'),
+(7,  3,  '2025-11-03', 80.50,  'entregado'),
+(8,  15, '2025-11-25', 80.00,  'incidencia'),
+(9,  22, '2025-12-10', 65.00,  'entregado'), 
+(10, 7,  '2026-01-08', 95.50,  'entregado'), 
+(11, 33, '2026-01-15', 129.99, 'enviado'),   
+(12, 1,  '2026-02-02', 157.40, 'enviado'),   
+(13, 19, '2026-02-28', 162.00, 'preparado'), 
+(14, 11, '2026-03-10', 55.00,  'pagado'),    
+(15, 28, '2026-04-05', 50.00,  'creado');    
 
 INSERT INTO articulo_pedido (id_articulo, id_pedido, unidades) VALUES
 (1, 1, 1),
@@ -183,9 +184,9 @@ INSERT INTO articulo_pedido (id_articulo, id_pedido, unidades) VALUES
 (13, 15, 1);
 
 INSERT INTO torneo (id_torneo, id_usuario, id_sala, id_juego, fecha, estado, nombre) VALUES
-(1, 1, 1, 14, '2026-05-15 10:00:00', 'terminado', 'SF II week'),
-(2, 10, 2, 11, '2026-06-20 17:00:00', 'terminado', 'Tetris PVP'),
-(3, 20, 1, 26, '2026-07-10 12:00:00', 'creado', 'SSB championship');
+(1, 1, 1, 14, '2026-05-15', 'terminado', 'SF II week'),
+(2, 10, 2, 11, '2026-06-20', 'terminado', 'Tetris PVP'),
+(3, 20, 1, 26, '2026-07-10', 'creado', 'SSB championship');
 
 
 INSERT INTO participacion (id_torneo, id_usuario) VALUES
@@ -264,86 +265,3 @@ INSERT INTO rival (id_usuario, id_torneo, id_enfrentamiento, es_ganador) VALUES
 (21, 3, 17, TRUE), (22, 3, 17, FALSE),(23, 3, 17, FALSE),(24, 3, 17, FALSE),
 (25, 3, 18, FALSE),(27, 3, 18, FALSE),(28, 3, 18, FALSE),(29, 3, 18, TRUE),
 (4, 3, 19, FALSE), (16, 3, 19, FALSE),(21, 3, 19, TRUE), (29, 3, 19, FALSE);
-
--- version comentada
-
-INSERT INTO enfrentamiento (id_enfrentamiento, nombre, top, participantes) VALUES
-/* -----------------------------------------------------
-   TORNEO 1 - Street Fighter II (8 jugadores, 1 vs 1) 
-   ----------------------------------------------------- */
-(1, 'SF2 - Cuartos 1', 'cuartos', 2),
-(2, 'SF2 - Cuartos 2', 'cuartos', 2),
-(3, 'SF2 - Cuartos 3', 'cuartos', 2),
-(4, 'SF2 - Cuartos 4', 'cuartos', 2),
-(5, 'SF2 - Semi 1', 'semifinal', 2),
-(6, 'SF2 - Semi 2', 'semifinal', 2),
-(7, 'SF2 - Final', 'final', 2),
-
-/* -----------------------------------------------------
-   TORNEO 2 - Tetris (8 jugadores, 1 vs 1) 
-   ----------------------------------------------------- */
-(8, 'Tetris - Cuartos 1', 'cuartos', 2),
-(9, 'Tetris - Cuartos 2', 'cuartos', 2),
-(10, 'Tetris - Cuartos 3', 'cuartos', 2),
-(11, 'Tetris - Cuartos 4', 'cuartos', 2),
-(12, 'Tetris - Semi 1', 'semifinal', 2),
-(13, 'Tetris - Semi 2', 'semifinal', 2),
-(14, 'Tetris - Final', 'final', 2),
-
-/* -----------------------------------------------------
-   TORNEO 3 - Smash Bros (16 jugadores, 4 contra 4) 
-   (4 enfrentamientos de cuartos -> Los 4 ganadores a la Final)
-   ----------------------------------------------------- */
-(15, 'Smash - Cuartos 1', 'cuartos', 4),
-(16, 'Smash - Cuartos 2', 'cuartos', 4),
-(17, 'Smash - Cuartos 3', 'cuartos', 4),
-(18, 'Smash - Cuartos 4', 'cuartos', 4),
-(19, 'Smash - Final', 'final', 4);
-
-
-INSERT INTO rival (id_usuario, id_torneo, id_enfrentamiento, es_ganador) VALUES
-/* =====================================================
-   RESULTADOS TORNEO 1: Street Fighter II
-   ===================================================== */
-/* --- CUARTOS DE FINAL --- */
-(2, 1, 1, TRUE),  (3, 1, 1, FALSE),  /* Gana 2 */
-(4, 1, 2, FALSE), (5, 1, 2, TRUE),   /* Gana 5 */
-(6, 1, 3, TRUE),  (7, 1, 3, FALSE),  /* Gana 6 */
-(8, 1, 4, FALSE), (9, 1, 4, TRUE),   /* Gana 9 */
-
-/* --- SEMIFINALES --- */
-(2, 1, 5, TRUE),  (5, 1, 5, FALSE),  /* Gana 2 */
-(6, 1, 6, FALSE), (9, 1, 6, TRUE),   /* Gana 9 */
-
-/* --- FINAL --- */
-(2, 1, 7, FALSE), (9, 1, 7, TRUE),   /* Campeón: 9 (Francisco) */
-
-
-/* =====================================================
-   RESULTADOS TORNEO 2: Tetris
-   ===================================================== */
-/* --- CUARTOS DE FINAL --- */
-(11, 2, 8, FALSE), (12, 2, 8, TRUE),   /* Gana 12 */
-(13, 2, 9, TRUE),  (14, 2, 9, FALSE),  /* Gana 13 */
-(15, 2, 10, FALSE),(16, 2, 10, TRUE),  /* Gana 16 */
-(17, 2, 11, TRUE), (18, 2, 11, FALSE), /* Gana 17 */
-
-/* --- SEMIFINALES --- */
-(12, 2, 12, TRUE), (13, 2, 12, FALSE), /* Gana 12 */
-(16, 2, 13, FALSE),(17, 2, 13, TRUE),  /* Gana 17 */
-
-/* --- FINAL --- */
-(12, 2, 14, TRUE), (17, 2, 14, FALSE), /* Campeón: 12 (Isabel) */
-
-
-/* =====================================================
-   RESULTADOS TORNEO 3: Super Smash Bros
-   ===================================================== */
-/* --- CUARTOS DE FINAL (Solo avanza 1 de cada grupo de 4) --- */
-(2, 3, 15, FALSE), (4, 3, 15, TRUE),  (6, 3, 15, FALSE), (8, 3, 15, FALSE), /* Gana 4 */
-(12, 3, 16, FALSE),(14, 3, 16, FALSE),(16, 3, 16, TRUE), (18, 3, 16, FALSE),/* Gana 16 */
-(21, 3, 17, TRUE), (22, 3, 17, FALSE),(23, 3, 17, FALSE),(24, 3, 17, FALSE),/* Gana 21 */
-(25, 3, 18, FALSE),(27, 3, 18, FALSE),(28, 3, 18, FALSE),(29, 3, 18, TRUE), /* Gana 29 */
-
-/* --- FINAL --- */
-(4, 3, 19, FALSE), (16, 3, 19, FALSE),(21, 3, 19, TRUE), (29, 3, 19, FALSE);/* Campeón: 21 (Pablo Ruiz) */

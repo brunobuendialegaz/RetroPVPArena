@@ -9,7 +9,13 @@
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/controller/TorneoController.java
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/controller/TorneoDetalleController.java
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/controller/UsuarioController.java
+/home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/dao/impl/StockDaoImpl.java
+/home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/dao/impl/TorneoDaoImpl.java
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/dao/impl/UsuarioDaoImpl.java
+/home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/dao/interfaces/IArticuloDao.java
+/home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/dao/interfaces/IConsolaDao.java
+/home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/dao/interfaces/IStockDao.java
+/home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/dao/interfaces/ITorneoDao.java
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/dao/interfaces/IUsuarioDao.java
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/model/Accesorio.java
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/model/Articulo.java
@@ -21,7 +27,6 @@
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/model/Participacion.java
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/model/ParticipacionId.java
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/model/Pedido.java
-/home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/model/PruebaLombook.java
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/model/Rival.java
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/model/RivalId.java
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/model/Sala.java
@@ -32,3 +37,7 @@
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/model/enums/PedidoEstadoEnum.java
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/model/enums/TipoUsuarioEnum.java
 /home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/model/enums/TorneoEstadoEnum.java
+/home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/service/AuthService.java
+/home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/service/Navegacion.java
+/home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/util/ControlSesion.java
+/home/blegaz/Proyectos/RetroPVPArena/src/main/java/org/example/retropvpadmin/util/LanzadorAlertas.java

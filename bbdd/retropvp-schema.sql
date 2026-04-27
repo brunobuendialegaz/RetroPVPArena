@@ -52,7 +52,7 @@ create table if not exists articulo(
 	nombre varchar(20) not null,
 	precio decimal(10, 2) not null,
 	description varchar(100) not null,
-	URL_foto varchar(150) not null
+	URL_foto varchar(150)
 );
 
 create table if not exists stock(
@@ -68,7 +68,7 @@ constraint fk_articulo
 
 );
 
-create table if not exists artiulo_pedido(
+create table if not exists articulo_pedido(
 	id_articulo int not null,
 	id_pedido int not null,
 	unidades int not null,
@@ -142,13 +142,6 @@ create table if not exists torneo(
 	id_sala int not null,
 	id_juego int not null,
 	fecha date not null,
-
-	-- añado la columna estado a torneo
-	ALTER TABLE torneo 
-	ADD estado ENUM('creado', 'iniciado', 'terminado');
-	-- tambien columna nombre 
-	ALTER TABLE torneo 
-	ADD nombre varchar(20) default 'torneo_X' not null;
 	
 	constraint fk_torneo_usuario
 		foreign key (id_usuario)
@@ -168,6 +161,13 @@ create table if not exists torneo(
 		on delete restrict
 		on update cascade
 );
+
+-- añado la columna estado a torneo
+	ALTER TABLE torneo 
+	ADD estado ENUM('creado', 'iniciado', 'terminado');
+	-- tambien columna nombre 
+	ALTER TABLE torneo 
+	ADD nombre varchar(20) default 'torneo_X' not null;
 
 create table if not exists participacion(
 	id_usuario int not null,
