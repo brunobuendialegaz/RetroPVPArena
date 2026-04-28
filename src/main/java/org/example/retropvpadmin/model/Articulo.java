@@ -23,7 +23,7 @@ public class Articulo implements java.io.Serializable {
      private BigDecimal precio;
      private String description;
      private Juego juego;
-     private Set stocks = new HashSet(0);
+     private Set<Stock> stocks = new HashSet(0);
      private Accesorio accesorio;
      private Consola consola;
      private Set articuloPedidos = new HashSet(0);
@@ -31,15 +31,15 @@ public class Articulo implements java.io.Serializable {
     public Articulo() {
     }
 
-    public Articulo(String nombre, BigDecimal precio, String description, Juego juego, Set stocks, Accesorio accesorio, Consola consola, Set articuloPedidos) {
-       this.nombre = nombre;
-       this.precio = precio;
-       this.description = description;
-       this.juego = juego;
-       this.stocks = stocks;
-       this.accesorio = accesorio;
-       this.consola = consola;
-       this.articuloPedidos = articuloPedidos;
+    public Articulo(Integer idArticulo, String nombre, BigDecimal precio, String description, Consola consola, Juego juego, Accesorio accesorio, Set stocks) {
+        this.idArticulo = idArticulo;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.description = description;
+        this.juego = juego;
+        this.accesorio = accesorio;
+        this.consola = consola;
+        this.stocks = stocks;
     }
 
 }

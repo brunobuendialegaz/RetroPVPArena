@@ -15,14 +15,14 @@ public class Stock  implements java.io.Serializable {
 
 
      private Integer idStock;
-     private Articulo articulo;
+     private Integer idArticulo;
      private int cantidad;
 
     public Stock() {
     }
 
-    public Stock(Articulo articulo, int cantidad) {
-       this.articulo = articulo;
+    public Stock(Integer idStock, int cantidad) {
+       this.idStock = idStock;
        this.cantidad = cantidad;
     }
 

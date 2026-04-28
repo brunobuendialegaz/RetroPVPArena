@@ -17,24 +17,22 @@ import java.util.Set;
 @Getter
 public class Juego extends Articulo implements java.io.Serializable {
 
-
-     private Integer idArticulo;
      private Consola consola;
-     private Articulo articulo;
-     private Date anioLanzamiento;
+     private int anioLanzamiento;
      private int jugadoresPvp;
      private Set torneos = new HashSet(0);
 
     public Juego() {
     }
 
-    public Juego(Consola consola, Articulo articulo, Date anioLanzamiento, int jugadoresPvp, Set torneos) {
-       this.consola = consola;
-       this.articulo = articulo;
-       this.anioLanzamiento = anioLanzamiento;
-       this.jugadoresPvp = jugadoresPvp;
-       this.torneos = torneos;
+    public Juego(Integer idArticulo, Consola consola, int anioLanzamiento, int jugadoresPvp) {
+        this.setIdArticulo(idArticulo);
+        this.consola = consola;
+        this.anioLanzamiento = anioLanzamiento;
+        this.jugadoresPvp = jugadoresPvp;
     }
+
+
 
 }
 

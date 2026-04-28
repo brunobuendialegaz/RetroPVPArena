@@ -17,21 +17,20 @@ import java.util.Set;
 @Setter
 public class Consola extends Articulo implements java.io.Serializable {
 
-
-     private Integer idArticulo;
-     private Articulo articulo;
-     private Date anioLanzamiento;
+     private int anioLanzamiento;
      private Set accesorios = new HashSet(0);
      private Set juegos = new HashSet(0);
 
     public Consola() {
     }
 
-    public Consola(Articulo articulo, Date anioLanzamiento, Set accesorios, Set juegos) {
-       this.articulo = articulo;
-       this.anioLanzamiento = anioLanzamiento;
-       this.accesorios = accesorios;
-       this.juegos = juegos;
+    public Consola(Integer idArticulo, int anioLanzamiento) {
+        this.setIdArticulo(idArticulo);
+        this.anioLanzamiento = anioLanzamiento;
+    }
+
+    public Consola(Integer idArticulo) {
+        this.setIdArticulo(idArticulo);
     }
 
 }

@@ -85,8 +85,8 @@ public class PanelController implements Initializable {
         panelButton.setOnAction(nav::irAPanel);
         userButton.setOnAction(nav::irAUsuario);
         stockButton.setOnAction(nav::irAStock);
-        torneoDetalleButton.setOnAction(nav::irATorneo);
-        torneoButton.setOnAction(nav::irATorneoDet);
+        torneoButton.setOnAction(nav::irATorneo);
+        torneoDetalleButton.setOnAction(nav::irATorneoDet);
         salirButton.setOnAction(nav::irALogin);
     }
 }

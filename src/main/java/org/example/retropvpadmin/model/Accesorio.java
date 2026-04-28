@@ -13,17 +13,14 @@ import lombok.Setter;
 @Getter
 public class Accesorio extends Articulo implements java.io.Serializable {
 
-
-     private Integer idArticulo;
      private Consola consola;
-     private Articulo articulo;
 
     public Accesorio() {
     }
 
-    public Accesorio(Consola consola, Articulo articulo) {
-       this.consola = consola;
-       this.articulo = articulo;
+    public Accesorio(Integer idArticulo, Consola consola) {
+        this.setIdArticulo(idArticulo);
+        this.consola = consola;
     }
 
 }

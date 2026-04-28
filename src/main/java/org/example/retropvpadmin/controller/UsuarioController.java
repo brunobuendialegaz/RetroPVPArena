@@ -165,8 +165,8 @@ public class UsuarioController implements Initializable {
         panelButton.setOnAction(nav::irAPanel);
         userButton.setOnAction(nav::irAUsuario);
         stockButton.setOnAction(nav::irAStock);
-        torneoDetalleButton.setOnAction(nav::irATorneo);
-        torneoButton.setOnAction(nav::irATorneoDet);
+        torneoButton.setOnAction(nav::irATorneo);
+        torneoDetalleButton.setOnAction(nav::irATorneoDet);
         salirButton.setOnAction(nav::irALogin);
         crearButton.setOnAction(event -> {
             boolean camposRellenos = grupoCrearAdmin.getSelectedToggle()!=null && !nombreField.getText().isEmpty() && !apellidoField.getText().isEmpty()

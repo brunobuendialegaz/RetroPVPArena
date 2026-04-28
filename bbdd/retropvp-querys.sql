@@ -82,6 +82,40 @@ select a.*, j.id_consola, j.jugadores_pvp  from articulo a
 	inner join juego j on j.id_articulo = a.id_articulo 
 	where j.jugadores_pvp > 0;
 
+    -- listado de articulos/consola/juego/accesorio/stock
+SELECT 
+    a.id_articulo,
+    a.nombre,
+    a.precio,
+    `a`.`description`,
+    a.URL_foto,
+    
+    s.id_stock,
+    s.cantidad,
+    
+    c.anio_lanzamiento AS consola_anio,
+    
+    j.id_consola       AS juego_id_consola,
+    j.anio_lanzamiento AS juego_anio,
+    j.jugadores_pvp,
+    
+    ac.id_consola      AS accesorio_id_consola,
+    
+    CASE 
+        WHEN c.id_articulo  IS NOT NULL THEN 'consola'
+        WHEN j.id_articulo  IS NOT NULL THEN 'juego'
+        WHEN ac.id_articulo IS NOT NULL THEN 'accesorio'
+        ELSE 'desconocido'
+    END AS tipo
+
+FROM articulo a
+LEFT JOIN stock     s  ON s.id_articulo  = a.id_articulo
+LEFT JOIN consola   c  ON c.id_articulo  = a.id_articulo
+LEFT JOIN juego     j  ON j.id_articulo  = a.id_articulo
+LEFT JOIN accesorio ac ON ac.id_articulo = a.id_articulo
+
+ORDER BY tipo, a.id_articulo;
+    
 -- Consultas panel torneos detalle
     -- listado de enfrentamientos con rivales
 
