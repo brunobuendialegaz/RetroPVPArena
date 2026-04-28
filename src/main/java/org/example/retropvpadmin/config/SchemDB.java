@@ -25,6 +25,18 @@ public interface SchemDB {
     String A_PRECIO = "precio";
     String A_DESCRIPCION = "description";
 
+    //tabla consola
+    String TAB_CONSOLA = "consola";
+    String ANO_LANZAMIENTO = "anio_lanzamiento";
+
+    //tabla juego
+    String TAB_JUEGO = "juego";
+    String ID_CONSOLA = "id_consola";
+    String J_JUGADORES_PVP = "jugadores_pvp";
+
+    //tabla accesorio
+    String TAB_ACCESORIOS = "accesorio";
+
     //tabla torneo
     String TAB_TORNEO = "torneo";
     String ID_TORNEO = "id_torneo";

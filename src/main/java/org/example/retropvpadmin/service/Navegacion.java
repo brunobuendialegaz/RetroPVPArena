@@ -17,7 +17,7 @@ public class Navegacion {
 
     private static final String PANELV = "panel-view.fxml";
     private static final String USUARIOV = "usuario-view.fxml";
-    private static final String STOCKV = "usuario-view.fxml";
+    private static final String STOCKV = "stock-view.fxml";
     private static final String TORNEOV = "torneo-view.fxml";
     private static final String TORNEODETV = "torneo-detalle-view.fxml";
     private static final String LOGINV = "login-view.fxml";
