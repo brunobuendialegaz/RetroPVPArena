@@ -20,7 +20,7 @@ public class ConexionBBDD {
             String pass = "root";
             String database = "retropvp";
         try {
-            connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/"+database,user,pass);
+            connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/"+database+"?allowMultiQueries=true",user,pass);
         } catch (SQLException e) {
             System.out.println("Error en la conexión con la bbdd");
             System.out.println(e.getMessage());

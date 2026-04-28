@@ -20,7 +20,9 @@ import org.example.retropvpadmin.service.Navegacion;
 import org.example.retropvpadmin.util.ControlSesion;
 import org.example.retropvpadmin.util.LanzadorAlertas;
 
+import java.math.BigDecimal;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Set;
 
@@ -112,6 +114,9 @@ public class StockController implements Initializable {
     @FXML
     private ToggleGroup tipoArticulo;
 
+    @FXML
+    private TextField idArticuloField;
+
     private Navegacion nav;
 
     private IArticuloDao articuloDao;
@@ -143,6 +148,7 @@ public class StockController implements Initializable {
                     limpiarCampos();
                     Articulo articulo = getTableView().getItems().get(getIndex());
                     tabPane.getSelectionModel().select(1);
+                    idArticuloField.setText(String.valueOf(articulo.getIdArticulo()));
                     nombreField.setText(articulo.getNombre());
                     descripcionField.setText(articulo.getDescription());
                     if (articulo.getConsola() != null){
@@ -233,6 +239,58 @@ public class StockController implements Initializable {
         torneoButton.setOnAction(nav::irATorneo);
         torneoDetalleButton.setOnAction(nav::irATorneoDet);
         salirButton.setOnAction(nav::irALogin);
+        buscadorField.textProperty().addListener((obs, oldVal, newVal) -> aplicarFiltro());
+        todosFiltro.selectedToggleProperty().addListener((obs, oldVal, newVal) -> aplicarFiltro());
+        crearButton.setOnAction(event -> {
+            boolean camposRConsola = tipoArticulo.getSelectedToggle()!=null && !nombreField.getText().isEmpty() && !precioField.getText().isEmpty();
+            boolean camposRJuegoAccesorio = camposRConsola && consolaCombo.getSelectionModel().getSelectedItem()!=null;
+            int existeArticulo = 0;
+            if (!idArticuloField.getText().isEmpty()){
+                existeArticulo = articuloDao.checkIdArticulo(Integer.parseInt(idArticuloField.getText()));
+            }
+            switch (existeArticulo){
+                case 1 -> {
+                    if (consolaRadio.isSelected()&&camposRConsola){
+                        articuloDao.updateConsola(idArticuloField.getText(), nombreField.getText(), precioField.getText(), descripcionField.getText(),
+                                cantidadSpinner.getValue(), Integer.parseInt(fechaField.getText()));
+                        lanzadorAlertas.lanzarAlerta(3,"Articulo actualizado");
+                        limpiarCampos();
+                    } else if (juegoRadio.isSelected()&&camposRJuegoAccesorio) {
+                        articuloDao.updateJuego(idArticuloField.getText(), nombreField.getText(), precioField.getText(), descripcionField.getText(),
+                                cantidadSpinner.getValue(), consolaCombo.getSelectionModel().getSelectedItem().getIdArticulo(), Integer.parseInt(fechaField.getText()), Integer.parseInt(jugadoresField.getText()));
+                        lanzadorAlertas.lanzarAlerta(3,"Articulo actualizado");
+                        limpiarCampos();
+                    } else if (accesorioRadio.isSelected()&&camposRJuegoAccesorio) {
+                        articuloDao.updateAccesorio(idArticuloField.getText(), nombreField.getText(), precioField.getText(), descripcionField.getText(),
+                                cantidadSpinner.getValue(), consolaCombo.getSelectionModel().getSelectedItem().getIdArticulo());
+                        lanzadorAlertas.lanzarAlerta(3,"Articulo actualizado");
+                        limpiarCampos();
+                    } else {
+                        lanzadorAlertas.lanzarAlerta(1, "Campos sin rellenar");
+                    }
+                }
+                case 0 -> {
+                    if (consolaRadio.isSelected()&&camposRConsola){
+                        articuloDao.crearConsola(nombreField.getText(), precioField.getText(), descripcionField.getText(),
+                                cantidadSpinner.getValue(), Integer.parseInt(fechaField.getText()));
+                        lanzadorAlertas.lanzarAlerta(3,"Articulo Creado");
+                        limpiarCampos();
+                    } else if (juegoRadio.isSelected()&&camposRJuegoAccesorio) {
+                        articuloDao.crearJuego(nombreField.getText(), precioField.getText(), descripcionField.getText(),
+                                cantidadSpinner.getValue(), consolaCombo.getSelectionModel().getSelectedItem().getIdArticulo(), Integer.parseInt(fechaField.getText()), Integer.parseInt(jugadoresField.getText()));
+                        lanzadorAlertas.lanzarAlerta(3,"Articulo Creado");
+                        limpiarCampos();
+                    } else if (accesorioRadio.isSelected()&&camposRJuegoAccesorio) {
+                        articuloDao.crearAccesorio(nombreField.getText(), precioField.getText(), descripcionField.getText(),
+                                cantidadSpinner.getValue(), consolaCombo.getSelectionModel().getSelectedItem().getIdArticulo());
+                        lanzadorAlertas.lanzarAlerta(3,"Articulo Creado");
+                        limpiarCampos();
+                    } else {
+                        lanzadorAlertas.lanzarAlerta(1, "Campos sin rellenar");
+                    }
+                }
+            }
+        });
     }
 
     private void limpiarCampos(){
@@ -243,5 +301,21 @@ public class StockController implements Initializable {
         jugadoresField.clear();
         precioField.clear();
         cantidadSpinner.getValueFactory().setValue(0);
+    }
+
+    private void aplicarFiltro() {
+        articuloFilteredList.setPredicate(articulo -> {
+            String filtro = buscadorField.getText().toLowerCase();
+            boolean coincideBuscador = filtro.isEmpty()
+                    || articulo.getNombre().toLowerCase().contains(filtro);
+            RadioButton radioActivo = (RadioButton) todosFiltro.getSelectedToggle();
+            boolean coincideRadio = true;
+            if (radioActivo != null && radioActivo.getText().equalsIgnoreCase("Disponible")) {
+                coincideRadio = articulo.getStocks() != null
+                        && !articulo.getStocks().isEmpty()
+                        && articulo.getStocks().iterator().next().getCantidad() > 0;
+            }
+            return coincideBuscador && coincideRadio;
+        });
     }
 }
