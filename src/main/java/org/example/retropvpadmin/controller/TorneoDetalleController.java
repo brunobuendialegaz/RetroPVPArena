@@ -81,6 +81,9 @@ public class TorneoDetalleController implements Initializable {
     @FXML
     private Text nombreUser;
 
+    @FXML
+    private Button sortearButton;
+
     private Navegacion nav;
 
     @Override

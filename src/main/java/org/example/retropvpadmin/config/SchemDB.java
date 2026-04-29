@@ -46,5 +46,27 @@ public interface SchemDB {
     String T_ESTADO = "estado";
     String T_NOMBRE = "nombre";
 
+    //tabla sala
+    String TAB_SALA = "sala";
+    String SL_NOMBRE = "nombre";
+    String SL_TAMANIO = "tamanio";
+
+    //tabla participacion
+    String TAB_PARTICIPACION = "participacion";
+    String P_FECHA = "fecha_registro";
+
+    //tabla enfrentamientos
+    String TAB_ENFRENTAMIENTO = "enfrentamiento";
+    String ID_ENFRENTAMIENTO = "id_enfrentamiento";
+    String E_NOMBRE = "nombre";
+    String E_TOP = "top";
+    String E_PARTICIPANTES = "participantes";
+
+    //tabla rival
+    String TAB_RIVAL = "rival";
+    String R_GANADOR = "es_ganador";
+
+
+
 
 }

@@ -11,7 +11,7 @@ public class BracketEngine {
     }
 
     public int calcularRondasPrevias(int numeroParticipantes){
-        int rondaInicial = calcularRondaInicial(numeroParticipantes)-numeroParticipantes;
+        int rondaInicial = calcularRondaInicial(numeroParticipantes);
         return numeroParticipantes-rondaInicial;
     }
 

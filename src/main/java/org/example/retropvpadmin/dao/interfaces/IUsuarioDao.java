@@ -17,4 +17,6 @@ public interface IUsuarioDao {
     boolean crearUsuario(long tipoUsuario, String nombre, String apellido, String email, String direccion, String telefono, String DNI);
 
     boolean actualizarUsuario(long tipoUsuario, String nombre, String apellido, String email, String direccion, String telefono, String DNI);
+
+    List<Usuario> listarJugadores();
 }

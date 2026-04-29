@@ -25,10 +25,10 @@ public class Sala  implements java.io.Serializable {
     public Sala() {
     }
 
-    public Sala(String nombre, int tamanio, Set torneos) {
+    public Sala(Integer idSala, String nombre, int tamanio) {
+        this.idSala = idSala;
        this.nombre = nombre;
        this.tamanio = tamanio;
-       this.torneos = torneos;
     }
 
 }

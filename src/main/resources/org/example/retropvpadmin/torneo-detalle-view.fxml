@@ -117,7 +117,8 @@
                                  </GridPane.margin>
                               </Text>
                               <ComboBox fx:id="ganadorCombo" prefWidth="200.0" promptText="Elegir ganador" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-                              <Button fx:id="ganadorButton" mnemonicParsing="false" text="Definir" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Button fx:id="ganadorButton" mnemonicParsing="false" text="Definir" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Button fx:id="sortearButton" mnemonicParsing="false" text="Sortear" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
                      </children>

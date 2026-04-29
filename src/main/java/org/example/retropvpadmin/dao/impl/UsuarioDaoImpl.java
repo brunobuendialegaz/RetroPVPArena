@@ -161,5 +161,34 @@ public class UsuarioDaoImpl implements IUsuarioDao {
             System.out.println(e.getMessage());
         }
         return false;
-    };
+    }
+
+    @Override
+    public List<Usuario> listarJugadores() {
+        List<Usuario> jugadores = new ArrayList<>();
+        String query = String.format("SELECT * FROM %s WHERE %s = 2",
+                SchemDB.TAB_USUARIO, SchemDB.ID_TIPO_USUARIO);
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                jugadores.add(new Usuario(
+                        resultSet.getLong(SchemDB.ID_USUARIO),
+                        resultSet.getLong(SchemDB.ID_TIPO_USUARIO),
+                        resultSet.getString(SchemDB.U_NOMBRE),
+                        resultSet.getString(SchemDB.U_APELLIDO),
+                        resultSet.getString(SchemDB.U_EMAIL),
+                        resultSet.getString(SchemDB.U_DIRECCION),
+                        resultSet.getString(SchemDB.U_TLF),
+                        resultSet.getString(SchemDB.U_DNI)
+                ));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error listarJugadores: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return jugadores;
+    }
+
+
 }

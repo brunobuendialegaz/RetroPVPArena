@@ -117,7 +117,11 @@ public class TorneoController implements Initializable {
     @FXML
     private ToggleButton userButton;
 
+    @FXML
+    private Button bracketButton;
 
+    @FXML
+    private TextField nombreCrearField;
 
     private Navegacion nav;
 

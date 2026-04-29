@@ -109,7 +109,7 @@
                               <ComboBox fx:id="juegoCombo" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
                               <ComboBox fx:id="salaCombo" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
                               <ComboBox fx:id="arbitroCombo" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-                              <Spinner fx:id="participantesSpiner" prefWidth="150.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+                              <Spinner fx:id="participantesSpiner" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Juego" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                                  <GridPane.margin>
                                     <Insets bottom="40.0" />
@@ -131,11 +131,17 @@
                                  </GridPane.margin>
                               </Text>
                               <DatePicker fx:id="fechaPicker" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Participantes" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Participantes" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
                                  <GridPane.margin>
                                     <Insets bottom="30.0" />
                                  </GridPane.margin>
                               </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Juego" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+                                 <GridPane.margin>
+                                    <Insets bottom="40.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <TextField fx:id="nombreCrearField" maxWidth="150.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
                            </children>
                         </GridPane>
                      </children>
@@ -172,9 +178,10 @@
                                   <TableColumn fx:id="nombreColParticipante" prefWidth="306.0" text="Nombre" />
                                 </columns>
                               </TableView>
-                              <Button fx:id="añadirParticipanteBtn" mnemonicParsing="false" text="Añadir" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Button fx:id="añadirParticipanteBtn" mnemonicParsing="false" text="Añadir" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Participante" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Button fx:id="bracketButton" mnemonicParsing="false" text="Crear Brackets" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
                      </children>
