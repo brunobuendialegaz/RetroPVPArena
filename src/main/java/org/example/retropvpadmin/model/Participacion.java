@@ -22,7 +22,7 @@ public class Participacion  implements java.io.Serializable {
      private Torneo torneo;
      private Usuario usuario;
      private Timestamp fechaRegistro;
-     private Set rivals = new HashSet(0);
+     private Set<Rival> rivals = new HashSet(0);
 
     public Participacion() {
     }

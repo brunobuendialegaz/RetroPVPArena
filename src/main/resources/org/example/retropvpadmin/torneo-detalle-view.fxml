@@ -10,6 +10,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -19,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retropvpadmin.controller.TorneoDetalleController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/25.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retropvpadmin.controller.TorneoDetalleController">
    <left>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -66,8 +67,13 @@
                           </rowConstraints>
                            <children>
                               <TextField fx:id="buscadorField" alignment="CENTER" promptText="Buscar por nombre, jugador..." />
-                              <RadioButton fx:id="todosRadio" mnemonicParsing="false" text="Todos" GridPane.columnIndex="1" />
-                              <RadioButton fx:id="finalizadosRadio" mnemonicParsing="false" text="Cuartos" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+                              <RadioButton fx:id="todosRadio" mnemonicParsing="false" text="Todos" GridPane.columnIndex="1">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="filtroEnfrentamiento" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton fx:id="finalizadosRadio" mnemonicParsing="false" text="Cuartos" toggleGroup="$filtroEnfrentamiento" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+                              <RadioButton fx:id="pendientesRadio" mnemonicParsing="false" text="Final" toggleGroup="$filtroEnfrentamiento" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                              <RadioButton fx:id="enProcesoRadio" mnemonicParsing="false" text="Semis" toggleGroup="$filtroEnfrentamiento" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TableView fx:id="torneosTableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
                                 <columns>
                                   <TableColumn fx:id="nombreColumn" prefWidth="121.0" text="Nombre" />
@@ -78,8 +84,6 @@
                                     <TableColumn fx:id="ganadorColumn" prefWidth="133.0" text="Ganador" />
                                 </columns>
                               </TableView>
-                              <RadioButton fx:id="pendientesRadio" mnemonicParsing="false" text="Final" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                              <RadioButton fx:id="enProcesoRadio" mnemonicParsing="false" text="Semis" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                      </children>
@@ -102,18 +106,18 @@
                             <RowConstraints maxHeight="137.0" minHeight="10.0" prefHeight="137.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button fx:id="ganadorButton" mnemonicParsing="false" text="Crear" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enfrentamiento" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                                  <GridPane.margin>
                                     <Insets bottom="40.0" />
                                  </GridPane.margin></Text>
-                              <ComboBox fx:id="ganadorCombo" prefWidth="200.0" promptText="Elegir ganador" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                              <ComboBox fx:id="enfrentamientoCombo" prefWidth="200.0" promptText="Elegir enfrentamiento" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ganador" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                                  <GridPane.margin>
                                     <Insets bottom="40.0" />
                                  </GridPane.margin>
                               </Text>
-                              <ComboBox fx:id="enfrentamientoCombo" prefWidth="200.0" promptText="Elegir enfrentamiento" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                              <ComboBox fx:id="ganadorCombo" prefWidth="200.0" promptText="Elegir ganador" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                              <Button fx:id="ganadorButton" mnemonicParsing="false" text="Definir" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
                      </children>

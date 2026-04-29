@@ -21,7 +21,7 @@ public class Enfrentamiento  implements java.io.Serializable {
      private String nombre;
      private String top;
      private int participantes;
-     private Set rivals = new HashSet(0);
+     private Set<Rival> rivals = new HashSet(0);
 
     public Enfrentamiento() {
     }

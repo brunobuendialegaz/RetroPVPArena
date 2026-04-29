@@ -16,6 +16,9 @@ public class TorneoController implements Initializable {
     private ComboBox<?> arbitroCombo;
 
     @FXML
+    private Button añadirParticipanteBtn;
+
+    @FXML
     private TextField buscadorField;
 
     @FXML
@@ -34,7 +37,19 @@ public class TorneoController implements Initializable {
     private DatePicker fechaPicker;
 
     @FXML
+    private ToggleGroup filtroTorneos;
+
+    @FXML
+    private TextField filtroUsuario;
+
+    @FXML
     private RadioButton finalizadosRadio;
+
+    @FXML
+    private TableColumn<?, ?> idColParticipante;
+
+    @FXML
+    private TableColumn<?, ?> idColUsers;
 
     @FXML
     private TableColumn<?, ?> juegoColumn;
@@ -46,7 +61,16 @@ public class TorneoController implements Initializable {
     private TableColumn<?, ?> juezColumn;
 
     @FXML
+    private TableColumn<?, ?> nombreColParticipante;
+
+    @FXML
+    private TableColumn<?, ?> nombreColUsers;
+
+    @FXML
     private TableColumn<?, ?> nombreColumn;
+
+    @FXML
+    private Text nombreUser;
 
     @FXML
     private ToggleButton panelButton;
@@ -64,13 +88,25 @@ public class TorneoController implements Initializable {
     private ComboBox<?> salaCombo;
 
     @FXML
+    private ToggleButton salirButton;
+
+    @FXML
     private ToggleButton stockButton;
+
+    @FXML
+    private TableView<?> tablaParticipante;
+
+    @FXML
+    private TableView<?> tablaUsers;
 
     @FXML
     private RadioButton todosRadio;
 
     @FXML
     private ToggleButton torneoButton;
+
+    @FXML
+    private ComboBox<?> torneoCombo;
 
     @FXML
     private ToggleButton torneoDetalleButton;
@@ -81,11 +117,7 @@ public class TorneoController implements Initializable {
     @FXML
     private ToggleButton userButton;
 
-    @FXML
-    private ToggleButton salirButton;
 
-    @FXML
-    private Text nombreUser;
 
     private Navegacion nav;
 
