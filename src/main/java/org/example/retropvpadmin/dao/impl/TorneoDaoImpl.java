@@ -47,56 +47,59 @@ public class TorneoDaoImpl implements ITorneoDao {
     public List<Torneo> listadoTorneos() {
         List<Torneo> torneos = new ArrayList<>();
         String query = String.format("SELECT t.%s, t.%s, t.%s, t.%s, " +
-                "t.%s, a.%s AS juego_nombre, " +
-                "t.%s, s.%s AS sala_nombre, s.%s, " +
-                "t.%s, u.%s AS arb_nombre, u.%s AS arb_apellido " +
-                "FROM %s t " +
-                "LEFT JOIN %s j ON j.%s = t.%s " +
-                "LEFT JOIN %s a ON a.%s = j.%s " +
-                "LEFT JOIN %s s ON s.%s = t.%s " +
-                "LEFT JOIN %s u ON u.%s = t.%s " +
-                "ORDER BY t.%s DESC;", SchemDB.ID_TORNEO, SchemDB.T_FECHA, SchemDB.T_ESTADO, SchemDB.T_NOMBRE,
+                        "t.%s, a.%s AS juego_nombre, " +
+                        "t.%s, s.%s AS sala_nombre, s.%s AS sala_tamanio, " +
+                        "t.%s, u.%s AS arb_nombre, u.%s AS arb_apellido " +
+                        "FROM %s t " +
+                        "LEFT JOIN %s j ON j.%s = t.%s " +   // ← j.id_articulo = t.id_juego
+                        "LEFT JOIN %s a ON a.%s = j.%s " +
+                        "LEFT JOIN %s s ON s.%s = t.%s " +
+                        "LEFT JOIN %s u ON u.%s = t.%s " +
+                        "ORDER BY t.%s DESC;",
+                SchemDB.ID_TORNEO, SchemDB.T_FECHA, SchemDB.T_ESTADO, SchemDB.T_NOMBRE,
                 SchemDB.ID_JUEGO, SchemDB.A_NOMBRE,
-                SchemDB.ID_USUARIO, SchemDB.SL_NOMBRE, SchemDB.SL_TAMANIO,
+                SchemDB.ID_SALA, SchemDB.SL_NOMBRE, SchemDB.SL_TAMANIO,
                 SchemDB.ID_USUARIO, SchemDB.U_NOMBRE, SchemDB.U_APELLIDO,
                 SchemDB.TAB_TORNEO,
-                SchemDB.TAB_JUEGO, SchemDB.ID_JUEGO, SchemDB.ID_JUEGO,
+                SchemDB.TAB_JUEGO, SchemDB.ID_ARTICULO, SchemDB.ID_JUEGO, // ← ID_ARTICULO aquí
                 SchemDB.TAB_ARTICULO, SchemDB.ID_ARTICULO, SchemDB.ID_ARTICULO,
                 SchemDB.TAB_SALA, SchemDB.ID_SALA, SchemDB.ID_SALA,
                 SchemDB.TAB_USUARIO, SchemDB.ID_USUARIO, SchemDB.ID_USUARIO,
                 SchemDB.T_FECHA
-                );
+        );
         try {
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
-                Articulo artJuego = new Articulo();
-                artJuego.setIdArticulo(resultSet.getInt(SchemDB.ID_ARTICULO));
-                artJuego.setNombre(resultSet.getString(SchemDB.A_NOMBRE));
+            while (resultSet.next()) {
+
                 Juego juego = new Juego();
                 juego.setIdArticulo(resultSet.getInt("id_juego"));
-                juego.setNombre(resultSet.getString("juego_nombre"));
-                Sala sala = new Sala(resultSet.getInt(SchemDB.ID_SALA),
-                        resultSet.getString(SchemDB.SL_NOMBRE),
-                        resultSet.getInt(SchemDB.SL_TAMANIO));
-                Usuario arbitro = new Usuario();
-                arbitro.setIdUsuario(resultSet.getLong(SchemDB.ID_USUARIO));
-                arbitro.setNombre(resultSet.getString("arb_nombre"));
-                arbitro.setApellido(resultSet.getString("arb_apellido"));
+                juego.setNombre(resultSet.getString("juego_nombre"));// todo Constructor
 
-                TorneoEstadoEnum estado = TorneoEstadoEnum.fromValorDB(resultSet.getString("estado"));
+                Sala sala = new Sala(
+                        resultSet.getInt("id_sala"),
+                        resultSet.getString("sala_nombre"),
+                        resultSet.getInt("sala_tamanio")
+                );// todo Constructor
+
+                Usuario arbitro = new Usuario();
+                arbitro.setIdUsuario(resultSet.getLong("id_usuario"));
+                arbitro.setNombre(resultSet.getString("arb_nombre"));
+                arbitro.setApellido(resultSet.getString("arb_apellido"));// todo Constructor
+
+                TorneoEstadoEnum estado = TorneoEstadoEnum.fromValorDB(
+                        resultSet.getString("estado"));
 
                 Torneo torneo = new Torneo();
-                torneo.setIdTorneo(resultSet.getInt(SchemDB.ID_TORNEO));
+                torneo.setIdTorneo(resultSet.getInt("id_torneo"));
+                torneo.setNombre(resultSet.getString("nombre"));
                 torneo.setJuego(juego);
                 torneo.setSala(sala);
                 torneo.setUsuario(arbitro);
                 torneo.setFecha(resultSet.getDate("fecha"));
-                torneo.setTorneoEstadoEnum(estado);
-                torneo.setNombre(resultSet.getString("nombre"));
+                torneo.setTorneoEstadoEnum(estado);// todo Constructor
 
                 torneos.add(torneo);
-
             }
         } catch (SQLException e) {
             System.out.println("Error listadoTorneos: " + e.getMessage());

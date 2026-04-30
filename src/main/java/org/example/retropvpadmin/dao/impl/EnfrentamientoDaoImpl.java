@@ -4,6 +4,7 @@ import org.example.retropvpadmin.config.ConexionBBDD;
 import org.example.retropvpadmin.config.SchemDB;
 import org.example.retropvpadmin.dao.interfaces.IEnfrentamientoDao;
 import org.example.retropvpadmin.model.*;
+import org.example.retropvpadmin.model.enums.TopEnum;
 
 import java.sql.*;
 import java.util.*;
@@ -48,7 +49,7 @@ public class EnfrentamientoDaoImpl implements IEnfrentamientoDao {
                     try {
                         e.setIdEnfrentamiento(resultSet.getInt(SchemDB.ID_ENFRENTAMIENTO));
                         e.setNombre(resultSet.getString(SchemDB.E_NOMBRE));
-                        e.setTop(resultSet.getString(SchemDB.E_TOP));
+                        e.setTop(TopEnum.fromValorDB(resultSet.getString(SchemDB.E_TOP)));
                         e.setParticipantes(resultSet.getInt(SchemDB.E_PARTICIPANTES));
                         e.setRivals(new HashSet<>());
                     } catch (SQLException ex) {
@@ -59,13 +60,13 @@ public class EnfrentamientoDaoImpl implements IEnfrentamientoDao {
                 Usuario u = new Usuario();
                 u.setIdUsuario(resultSet.getLong("id_usuario"));
                 u.setNombre(resultSet.getString("u_nombre"));
-                u.setApellido(resultSet.getString(SchemDB.U_APELLIDO));
+                u.setApellido(resultSet.getString(SchemDB.U_APELLIDO));// todo Constructor
                 ParticipacionId pId = new ParticipacionId(idTorneo, (int) u.getIdUsuario());
-                Participacion p = new Participacion();
+                Participacion p = new Participacion();// todo Constructor
                 p.setId(pId);
                 p.setUsuario(u);
                 RivalId rId = new RivalId(idEnf, idTorneo, (int) u.getIdUsuario());
-                Rival rival = new Rival();
+                Rival rival = new Rival();// todo Constructor
                 rival.setId(rId);
                 rival.setParticipacion(p);
                 rival.setEnfrentamiento(enf);
@@ -83,7 +84,7 @@ public class EnfrentamientoDaoImpl implements IEnfrentamientoDao {
 
     @Override
     public int crearEnfrentamiento(String nombre, String top, int participantes) {
-        String query = String.format("INSERT INTO enfrentamiento%s (nombre%s, top%s, participantes%s) VALUES (?, ?, ?)",
+        String query = String.format("INSERT INTO %s (%s, %s, %s) VALUES (?, ?, ?)",
                 SchemDB.TAB_ENFRENTAMIENTO, SchemDB.E_NOMBRE, SchemDB.E_TOP, SchemDB.E_PARTICIPANTES);
         try {
             preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);

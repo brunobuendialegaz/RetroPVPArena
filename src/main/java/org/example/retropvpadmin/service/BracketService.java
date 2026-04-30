@@ -42,8 +42,7 @@ public class BracketService {
             rivalDao.asignarRival(participantes.get(indice++), idTorneo, idEnf);
         }
 
-        // Crear ronda inicial — clasificados directos ya entran,
-        // el segundo hueco de cada partida lo ocupa el ganador de una previa
+        // Crear ronda inicial
         int partidasRondaInicial = rondaInicial / 2;
         for (int i = 0; i < partidasRondaInicial; i++) {
             int idEnf = enfrentamientoDao.crearEnfrentamiento(
@@ -51,11 +50,14 @@ public class BracketService {
             );
             if (idEnf == -1) return false;
 
-            // Solo asigno si queda clasificado directo
+            // Primer rival — siempre clasificado directo si queda
             if (indice < participantes.size()) {
                 rivalDao.asignarRival(participantes.get(indice++), idTorneo, idEnf);
             }
-            // El segundo hueco se rellena al avanzar el ganador de la previa
+            // Segundo rival — clasificado directo si queda, si no vendrá de una previa
+            if (indice < participantes.size()) {
+                rivalDao.asignarRival(participantes.get(indice++), idTorneo, idEnf);
+            }
         }
 
         return true;

@@ -69,17 +69,21 @@ public class ArticuloDaoImpl implements IArticuloDao {
                 Accesorio accesorio = null;
                 String tipo = resultSet.getString("tipo");
                 switch (tipo) {
-                    case "consola" -> consola = new Consola(
-                            resultSet.getInt(SchemDB.ID_ARTICULO),
-                            resultSet.getInt("consola_anio"));
+                    case "consola" -> {
+                        consola = new Consola(resultSet.getInt(SchemDB.ID_ARTICULO),
+                                resultSet.getInt("consola_anio"));
+                        consola.setNombre(nombre); // todo Constructor
+                    }
                     case "juego" -> {
-                        Consola consolaJuego = new Consola(resultSet.getInt("juego_id_consola"));
-                        juego = new Juego(resultSet.getInt(SchemDB.ID_ARTICULO), consolaJuego,
+                        Consola consolaDelJuego = new Consola(resultSet.getInt("juego_id_consola"));
+                        juego = new Juego(resultSet.getInt(SchemDB.ID_ARTICULO), consolaDelJuego,
                                 resultSet.getInt("juego_anio"), resultSet.getInt(SchemDB.J_JUGADORES_PVP));
+                        juego.setNombre(nombre); // todo Constructor
                     }
                     case "accesorio" -> {
-                        Consola consolaAccesorio = new Consola(resultSet.getInt("accesorio_id_consola"));
-                        accesorio = new Accesorio(resultSet.getInt(SchemDB.ID_ARTICULO), consolaAccesorio);
+                        Consola consolaDelAccesorio = new Consola(resultSet.getInt("accesorio_id_consola"));
+                        accesorio = new Accesorio(resultSet.getInt(SchemDB.ID_ARTICULO), consolaDelAccesorio);
+                        accesorio.setNombre(nombre); // todo Constructor
                     }
                 }
                 Set<Stock> stocks = new HashSet<>(Arrays

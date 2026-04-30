@@ -5,6 +5,7 @@ package org.example.retropvpadmin.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.example.retropvpadmin.model.enums.TopEnum;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -19,14 +20,14 @@ public class Enfrentamiento  implements java.io.Serializable {
 
      private Integer idEnfrentamiento;
      private String nombre;
-     private String top;
+     private TopEnum top;
      private int participantes;
      private Set<Rival> rivals = new HashSet(0);
 
     public Enfrentamiento() {
     }
 
-    public Enfrentamiento(String nombre, String top, int participantes, Set rivals) {
+    public Enfrentamiento(String nombre, TopEnum top, int participantes, Set rivals) {
        this.nombre = nombre;
        this.top = top;
        this.participantes = participantes;

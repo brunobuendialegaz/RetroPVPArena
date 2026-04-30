@@ -136,7 +136,7 @@
                                     <Insets bottom="30.0" />
                                  </GridPane.margin>
                               </Text>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Juego" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre Torneo" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
                                  <GridPane.margin>
                                     <Insets bottom="40.0" />
                                  </GridPane.margin>

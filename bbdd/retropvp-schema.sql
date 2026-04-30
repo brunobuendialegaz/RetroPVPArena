@@ -196,6 +196,10 @@ create table if not exists enfrentamiento(
 	participantes int not null	
 );
 
+ -- Añado previa como valor del enum.
+ALTER TABLE enfrentamiento 
+MODIFY COLUMN top ENUM('final', 'semifinal', 'cuartos', 'octavos', 'dieciseisavos', 'previa') NOT NULL;
+
 create table if not exists rival(
 	id_usuario int not null,
 	id_torneo int not null,

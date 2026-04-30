@@ -42,7 +42,7 @@ public class ParticipacionDaoImpl implements IParticipacionDao {
                 user.setIdUsuario(resultSet.getLong(SchemDB.ID_USUARIO));
                 user.setNombre(resultSet.getString(SchemDB.U_NOMBRE));
                 user.setApellido(resultSet.getString(SchemDB.U_APELLIDO));
-                participantes.add(user);
+                participantes.add(user);// todo Constructor
             }
         } catch (SQLException e) {
             System.out.println("Error listadoParticipantes: " + e.getMessage());
