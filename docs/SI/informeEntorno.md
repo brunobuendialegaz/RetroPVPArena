@@ -35,5 +35,13 @@ Aunque la aplicación es multiplataforma gracias a la Java Virtual Machine (JVM)
     
     ![Imagen POD](image.png)
 * **Evidencia B:** Pantallazo de la aplicación JavaFX abierta y conectada.
+
+    ![alt text](image-3.png)
+
+    ![alt text](image-4.png)
+
+    ![alt text](image-2.png)
+
+
 * **Evidencia C:** Captura de DBeaver visualizando las tablas creadas 
     ![DataBase Relacional](image-1.png).

@@ -1,0 +1,288 @@
+/* =========================================
+   VARIABLES GLOBALES Y FONDO
+   ========================================= */
+.root {
+    -fx-bg-color: #12181f;
+    -fx-input-bg: #1a222c; /* Un tono un pelín más claro para los inputs sin focus */
+    -fx-text-color: #a3aab4;
+    -fx-accent-1: #3dcdda;
+    -fx-accent-2: #d0fa00;
+    
+    -fx-background-color: -fx-bg-color;
+    -fx-font-family: "Courier New", monospace; 
+    -fx-font-size: 14px;
+}
+
+/* =========================================
+   TEXTOS COMUNES (Corregido)
+   ========================================= */
+/* Etiqueta Text con mayúscula para atrapar los nodos <Text> de tus FXML */
+Text {
+    -fx-fill: -fx-text-color;
+}
+
+.label {
+    -fx-text-fill: -fx-text-color;
+}
+
+/* =========================================
+   BOTONES Y MENÚ LATERAL (ToggleButtons)
+   ========================================= */
+.button, .toggle-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-accent-1;
+    -fx-border-color: -fx-accent-1;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+}
+
+.button:hover, .toggle-button:hover {
+    -fx-background-color: -fx-bg-color;
+    -fx-text-fill: -fx-accent-1;
+    -fx-border-color: -fx-accent-1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 255, 204, 0.7), 10, 0, 0, 0); 
+}
+
+.toggle-button:selected {
+    -fx-background-color: -fx-accent-1;
+    -fx-text-fill: -fx-bg-color;
+    -fx-effect: dropshadow(three-pass-box, -fx-accent-1, 15, 0, 0, 0);
+}
+
+/* =========================================
+   CAMPOS DE TEXTO Y FORMULARIOS
+   ========================================= */
+.text-field, .combo-box, .spinner, .date-picker {
+    -fx-background-color: -fx-input-bg;
+    -fx-text-fill: -fx-text-color;
+    -fx-border-color: #4a5568;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    /* Reducimos el padding vertical (arriba/abajo) a 3px para hacerlos más finos */
+    -fx-padding: 3px 6px; 
+}
+
+.text-input {
+    -fx-prompt-text-fill: #5a6472;
+}
+
+.text-field:focused, .combo-box:focused, .spinner:focused {
+    -fx-background-color: -fx-bg-color;
+    -fx-text-fill: -fx-accent-1;
+    -fx-border-color: -fx-accent-1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 255, 204, 0.7), 10, 0, 0, 0);
+}
+
+/* Arreglo extra para que el desplegable del ComboBox sea oscuro */
+.combo-box-popup .list-view {
+    -fx-background-color: -fx-input-bg;
+    -fx-border-color: -fx-accent-1;
+}
+.combo-box-popup .list-cell {
+    -fx-text-fill: -fx-text-color;
+    -fx-background-color: transparent;
+}
+.combo-box-popup .list-cell:hover, .combo-box-popup .list-cell:selected {
+    -fx-background-color: -fx-accent-1;
+    -fx-text-fill: -fx-bg-color;
+}
+
+/* =========================================
+   TEXT AREA (Área de texto grande)
+   ========================================= */
+.text-area {
+    -fx-background-color: -fx-input-bg;
+    -fx-border-color: #4a5568;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 4px;
+}
+
+/* ¡La magia para quitar el recuadro blanco interno! */
+.text-area .content {
+    -fx-background-color: -fx-input-bg;
+}
+
+/* Color del texto dentro del TextArea */
+.text-area:focused, .text-area:focused .content {
+    -fx-background-color: -fx-bg-color;
+}
+
+.text-area:focused {
+    -fx-border-color: -fx-accent-1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 255, 204, 0.7), 10, 0, 0, 0);
+}
+
+/* =========================================
+   SPINNERS (Botones de incremento/decremento)
+   ========================================= */
+.spinner .increment-arrow-button, 
+.spinner .decrement-arrow-button {
+    -fx-background-color: #1a222c;
+    -fx-border-color: #4a5568;
+    -fx-border-width: 0 0 0 1px; /* Solo borde a la izquierda para separarlo del texto */
+}
+
+.spinner .increment-arrow-button:hover, 
+.spinner .decrement-arrow-button:hover {
+    -fx-background-color: -fx-accent-1;
+}
+
+.spinner .increment-arrow-button .increment-arrow, 
+.spinner .decrement-arrow-button .decrement-arrow {
+    -fx-background-color: -fx-accent-1;
+}
+
+.spinner .increment-arrow-button:hover .increment-arrow, 
+.spinner .decrement-arrow-button:hover .decrement-arrow {
+    -fx-background-color: -fx-bg-color;
+}
+
+/* =========================================
+   PESTAÑAS (TabPane)
+   ========================================= */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: -fx-bg-color;
+}
+
+.tab {
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-accent-1;
+    -fx-border-width: 1px 1px 0px 1px;
+    -fx-border-radius: 4px 4px 0 0;
+}
+
+.tab .tab-label {
+    -fx-text-fill: -fx-text-color;
+}
+
+.tab:selected {
+    -fx-background-color: -fx-accent-1;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: -fx-bg-color;
+}
+
+.tab-pane .tab-content-area {
+    -fx-border-color: -fx-accent-1;
+    -fx-border-width: 1px 0 0 0;
+}
+
+/* =========================================
+   TABLAS (TableView)
+   ========================================= */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-accent-1;
+    -fx-border-radius: 4px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: -fx-bg-color;
+    -fx-border-bottom-color: -fx-accent-1;
+    -fx-border-bottom-width: 2px;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: -fx-accent-1;
+    -fx-font-family: "Courier New", monospace;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-background-color: -fx-bg-color;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #1a222c; 
+}
+
+.table-row-cell:selected {
+    -fx-background-color: -fx-accent-1;
+}
+
+/* AQUÍ ESTÁ LA MAGIA PARA EL TEXTO INTERNO */
+.table-cell {
+    -fx-text-fill: -fx-text-color; /* Forzamos el color claro en las celdas */
+    -fx-padding: 0 5px; /* Le damos un poco de aire al texto */
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: -fx-bg-color; /* Texto oscuro cuando la fila está seleccionada */
+}
+
+/* =========================================
+   RADIO BUTTONS
+   ========================================= */
+.radio-button {
+    -fx-text-fill: -fx-text-color;
+    -fx-padding: 5px 15px; /* 5px arriba/abajo, 15px izquierda/derecha */
+}
+
+.radio-button .radio {
+    -fx-border-color: -fx-accent-1;
+    -fx-background-color: transparent;
+}
+
+.radio-button:selected .radio .dot {
+    -fx-background-color: -fx-accent-2; 
+}
+
+/* =========================================
+   BARRAS DE DESPLAZAMIENTO (Scrollbars)
+   ========================================= */
+.scroll-bar {
+    -fx-background-color: -fx-bg-color;
+    -fx-border-color: transparent;
+}
+
+/* El carril por donde se mueve la barra */
+.scroll-bar .track {
+    -fx-background-color: #1a222c;
+    -fx-border-color: #4a5568;
+    -fx-border-width: 1px;
+}
+
+/* La barra que arrastras (Thumb) */
+.scroll-bar .thumb {
+    -fx-background-color: -fx-accent-1;
+    -fx-background-radius: 0px; /* Bordes rectos para mantener el estilo retro */
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #5cf2ff; /* Un cyan un poco más brillante al pasar el ratón */
+}
+
+/* Los botones de arriba/abajo o izquierda/derecha */
+.scroll-bar .increment-button, 
+.scroll-bar .decrement-button {
+    -fx-background-color: #1a222c;
+    -fx-border-color: #4a5568;
+    -fx-border-width: 1px;
+}
+
+.scroll-bar .increment-button:hover, 
+.scroll-bar .decrement-button:hover {
+    -fx-background-color: -fx-accent-1;
+}
+
+/* Las flechitas dentro de los botones */
+.scroll-bar .increment-arrow, 
+.scroll-bar .decrement-arrow {
+    -fx-background-color: -fx-accent-1;
+}
+
+.scroll-bar .increment-button:hover .increment-arrow, 
+.scroll-bar .decrement-button:hover .decrement-arrow {
+    -fx-background-color: -fx-bg-color;
+}
