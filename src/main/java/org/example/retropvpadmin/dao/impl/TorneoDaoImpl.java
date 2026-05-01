@@ -72,33 +72,23 @@ public class TorneoDaoImpl implements ITorneoDao {
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
 
-                Juego juego = new Juego();
-                juego.setIdArticulo(resultSet.getInt("id_juego"));
-                juego.setNombre(resultSet.getString("juego_nombre"));// todo Constructor
-
+                Juego juego = new Juego(resultSet.getInt("id_juego"),
+                        resultSet.getString("juego_nombre"));
                 Sala sala = new Sala(
                         resultSet.getInt("id_sala"),
                         resultSet.getString("sala_nombre"),
-                        resultSet.getInt("sala_tamanio")
-                );// todo Constructor
-
-                Usuario arbitro = new Usuario();
-                arbitro.setIdUsuario(resultSet.getLong("id_usuario"));
-                arbitro.setNombre(resultSet.getString("arb_nombre"));
-                arbitro.setApellido(resultSet.getString("arb_apellido"));// todo Constructor
-
+                        resultSet.getInt("sala_tamanio"));
+                Usuario arbitro = new Usuario(resultSet.getLong("id_usuario"),
+                        resultSet.getString("arb_nombre"),
+                        resultSet.getString("arb_apellido"));
                 TorneoEstadoEnum estado = TorneoEstadoEnum.fromValorDB(
                         resultSet.getString("estado"));
 
-                Torneo torneo = new Torneo();
-                torneo.setIdTorneo(resultSet.getInt("id_torneo"));
-                torneo.setNombre(resultSet.getString("nombre"));
-                torneo.setJuego(juego);
-                torneo.setSala(sala);
-                torneo.setUsuario(arbitro);
-                torneo.setFecha(resultSet.getDate("fecha"));
-                torneo.setTorneoEstadoEnum(estado);// todo Constructor
-
+                Torneo torneo = new Torneo(resultSet.getInt("id_torneo"),
+                        resultSet.getString("nombre"),
+                        juego, sala, arbitro,
+                        resultSet.getDate("fecha"),
+                        estado);
                 torneos.add(torneo);
             }
         } catch (SQLException e) {

@@ -25,6 +25,11 @@ public class Juego extends Articulo implements java.io.Serializable {
     public Juego() {
     }
 
+    public Juego(Integer idArticulo, String nombre) {
+        this.setIdArticulo(idArticulo);
+        this.setNombre(nombre);
+    }
+
     public Juego(Integer idArticulo, Consola consola, int anioLanzamiento, int jugadoresPvp) {
         this.setIdArticulo(idArticulo);
         this.consola = consola;
@@ -33,6 +38,13 @@ public class Juego extends Articulo implements java.io.Serializable {
     }
 
 
+    public Juego(Integer idArticulo, Consola consola, int anioLanzamiento, int jugadoresPvp, String nombre) {
+        this.setIdArticulo(idArticulo);
+        this.consola = consola;
+        this.anioLanzamiento = anioLanzamiento;
+        this.jugadoresPvp = jugadoresPvp;
+        this.setNombre(nombre);
+    }
 
 }
 

@@ -42,6 +42,8 @@ public class Articulo implements java.io.Serializable {
         this.stocks = stocks;
     }
 
+
+
 }
 
 

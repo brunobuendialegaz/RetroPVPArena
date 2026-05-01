@@ -20,6 +20,7 @@ import org.example.retropvpadmin.model.enums.TorneoEstadoEnum;
 import org.example.retropvpadmin.service.BracketService;
 import org.example.retropvpadmin.service.Navegacion;
 import org.example.retropvpadmin.util.ControlSesion;
+import org.example.retropvpadmin.util.LanzadorAlertas;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -106,6 +107,7 @@ public class TorneoDetalleController implements Initializable {
     private IEnfrentamientoDao enfrentamientoDao;
     private IRivalDao rivalDao;
     private BracketService bracketService;
+    private LanzadorAlertas lanzadorAlertas;
 
     private ObservableList<Torneo> torneos;
     private ObservableList<Enfrentamiento> enfrentamientos;
@@ -128,6 +130,7 @@ public class TorneoDetalleController implements Initializable {
                 new EnfrentamientoDaoImpl(),
                 new RivalDaoImpl()
         );
+        lanzadorAlertas = new LanzadorAlertas();
     }
 
     private void initGUI() {
@@ -271,7 +274,10 @@ public class TorneoDetalleController implements Initializable {
             Torneo torneo = torneoCombo.getValue();
             Enfrentamiento enf = enfrentamientoCombo.getValue();
             Usuario ganador = ganadorCombo.getValue();
-            if (torneo == null || enf == null || ganador == null) return;
+            if (torneo == null || enf == null || ganador == null) {
+                lanzadorAlertas.lanzarAlerta(1, "Campos vacíos.");
+                return;
+            };
 
             boolean ok = bracketService.definirGanador(
                     (int) ganador.getIdUsuario(),
@@ -279,6 +285,7 @@ public class TorneoDetalleController implements Initializable {
                     enf.getIdEnfrentamiento()
             );
             if (ok) {
+                lanzadorAlertas.lanzarAlerta(3, "Ganador actualizado.");
                 // Si es la final, el torneo ha terminado
                 if (enf.getTop() == TopEnum.FINAL) {
                     torneoDao.actualizarEstado(
@@ -294,25 +301,59 @@ public class TorneoDetalleController implements Initializable {
 
         sortearButton.setOnAction(e -> {
             Torneo torneo = torneoCombo.getValue();
-            if (torneo == null) return;
+            if (torneo == null) {
+                lanzadorAlertas.lanzarAlerta(1, "Campos vacíos.");
+                return;
+            };
 
-            List<Integer> idsGanadores = enfrentamientos.stream()
+            // Ganadores de previas que aún no tienen enfrentamiento de cuartos
+            List<Integer> ganadoresPrevias = enfrentamientos.stream()
+                    .filter(enf -> enf.getTop() == TopEnum.PREVIA)
                     .flatMap(enf -> enf.getRivals().stream())
                     .filter(r -> Boolean.TRUE.equals(r.getEsGanador()))
                     .map(r -> r.getId().getIdUsuario())
                     .toList();
 
-            if (idsGanadores.isEmpty()) return;
+            // Enfrentamientos de la ronda principal con hueco vacío (solo 1 rival)
+            List<Enfrentamiento> conHuecoVacio = enfrentamientos.stream()
+                    .filter(enf -> enf.getTop() != TopEnum.PREVIA
+                            && enf.getRivals().size() < 2)
+                    .toList();
 
-            boolean ok = bracketService.sortearSiguienteRonda(
-                    torneo.getIdTorneo(), idsGanadores);
+            // Rellenar huecos con ganadores de previas
+            int idx = 0;
+            boolean algoCambiado = false;
+            for (Enfrentamiento enf : conHuecoVacio) {
+                if (idx >= ganadoresPrevias.size()) break;
+                boolean ok = bracketService.avanzarGanador(
+                        ganadoresPrevias.get(idx++),
+                        torneo.getIdTorneo(),
+                        enf.getIdEnfrentamiento()
+                );
+                if (ok) algoCambiado = true;
+            }
 
-            if (ok) {
+            // Si no había huecos que rellenar, sortear siguiente ronda normal
+            if (!algoCambiado) {
+                List<Integer> idsGanadores = enfrentamientos.stream()
+                        .filter(enf -> enf.getTop() != TopEnum.PREVIA)
+                        .flatMap(enf -> enf.getRivals().stream())
+                        .filter(r -> Boolean.TRUE.equals(r.getEsGanador()))
+                        .map(r -> r.getId().getIdUsuario())
+                        .toList();
+
+                if (!idsGanadores.isEmpty()) {
+                    bracketService.sortearSiguienteRonda(torneo.getIdTorneo(), idsGanadores);
+                }
+            }
+
+            if (algoCambiado || !ganadoresPrevias.isEmpty()) {
                 enfrentamientos.setAll(
                         enfrentamientoDao.listadoEnfrentamientos(torneo.getIdTorneo()));
             }
-        });
 
+            lanzadorAlertas.lanzarAlerta(3, "Sorteo de la siguiente ronda Realizado.");
+        });
 
     }
 }

@@ -5,6 +5,7 @@ package org.example.retropvpadmin.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.retropvpadmin.config.SchemDB;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -51,6 +52,12 @@ public class Usuario implements java.io.Serializable {
         this.participacions = participacions;
         this.pedidos = pedidos;
         this.torneos = torneos;
+    }
+
+    public Usuario(long idUsuario, String nombre, String apellido) {
+        this.idUsuario = idUsuario;
+        this.nombre = nombre;
+        this.apellido = apellido;
     }
 
 }

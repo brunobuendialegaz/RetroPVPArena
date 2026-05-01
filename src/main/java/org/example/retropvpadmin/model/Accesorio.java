@@ -23,6 +23,12 @@ public class Accesorio extends Articulo implements java.io.Serializable {
         this.consola = consola;
     }
 
+    public Accesorio(Integer idArticulo, Consola consola, String nombre) {
+        this.setIdArticulo(idArticulo);
+        this.consola = consola;
+        this.setNombre(nombre);
+    }
+
 }
 
 

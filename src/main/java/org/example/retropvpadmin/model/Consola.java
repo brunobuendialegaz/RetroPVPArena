@@ -29,6 +29,14 @@ public class Consola extends Articulo implements java.io.Serializable {
         this.anioLanzamiento = anioLanzamiento;
     }
 
+    // IDarti, año, nombre
+
+    public Consola(Integer idArticulo, int anioLanzamiento, String nombre) {
+        this.setIdArticulo(idArticulo);
+        this.anioLanzamiento = anioLanzamiento;
+        this.setNombre(nombre);
+    }
+
     public Consola(Integer idArticulo) {
         this.setIdArticulo(idArticulo);
     }

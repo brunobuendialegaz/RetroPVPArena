@@ -42,6 +42,26 @@ public class Torneo  implements java.io.Serializable {
         this.torneoEstadoEnum = torneoEstadoEnum;
     }
 
+    public Torneo(Integer idTorneo, String nombre, Juego juego, Sala sala, Usuario usuario, Date fecha, TorneoEstadoEnum torneoEstadoEnum) {
+        this.idTorneo = idTorneo;
+        this.nombre = nombre;
+        this.juego = juego;
+        this.sala = sala;
+        this.usuario = usuario;
+        this.fecha = fecha;
+        this.torneoEstadoEnum = torneoEstadoEnum;
+    }
+
+    public Torneo(String nombre, Juego juego, Sala sala, Usuario usuario, Date fecha, TorneoEstadoEnum torneoEstadoEnum) {
+        this.nombre = nombre;
+        this.juego = juego;
+        this.sala = sala;
+        this.usuario = usuario;
+        this.fecha = fecha;
+        this.participacions = new HashSet<>();
+        this.torneoEstadoEnum = torneoEstadoEnum;
+    }
+
 }
 
 

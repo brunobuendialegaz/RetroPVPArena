@@ -38,11 +38,10 @@ public class ParticipacionDaoImpl implements IParticipacionDao {
             preparedStatement.setInt(1, idTorneo);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Usuario user = new Usuario();
-                user.setIdUsuario(resultSet.getLong(SchemDB.ID_USUARIO));
-                user.setNombre(resultSet.getString(SchemDB.U_NOMBRE));
-                user.setApellido(resultSet.getString(SchemDB.U_APELLIDO));
-                participantes.add(user);// todo Constructor
+                Usuario usuario = new Usuario(resultSet.getLong(SchemDB.ID_USUARIO),
+                        resultSet.getString(SchemDB.U_NOMBRE),
+                        resultSet.getString(SchemDB.U_APELLIDO));
+                participantes.add(usuario);
             }
         } catch (SQLException e) {
             System.out.println("Error listadoParticipantes: " + e.getMessage());

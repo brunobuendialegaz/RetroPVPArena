@@ -18,6 +18,7 @@ import org.example.retropvpadmin.model.enums.TorneoEstadoEnum;
 import org.example.retropvpadmin.service.BracketService;
 import org.example.retropvpadmin.service.Navegacion;
 import org.example.retropvpadmin.util.ControlSesion;
+import org.example.retropvpadmin.util.LanzadorAlertas;
 
 import java.net.URL;
 import java.sql.Date;
@@ -144,6 +145,7 @@ public class TorneoController implements Initializable {
     private ISalaDao salaDao;
     private IArticuloDao articuloDao;
     private BracketService bracketService;
+    private LanzadorAlertas lanzadorAlertas;
 
     private ObservableList<Torneo> torneos;
     private ObservableList<Torneo> torneosCreados;
@@ -167,6 +169,7 @@ public class TorneoController implements Initializable {
         salaDao = new SalaDaoImpl();
         articuloDao = new ArticuloDaoImpl();
         bracketService = new BracketService(new EnfrentamientoDaoImpl(), new RivalDaoImpl());
+        lanzadorAlertas = new LanzadorAlertas();
     }
 
     private void initGUI() {
@@ -366,6 +369,7 @@ public class TorneoController implements Initializable {
                                 .filter(t -> t.getTorneoEstadoEnum() == TorneoEstadoEnum.CREADO)
                                 .toList()
                 );
+                lanzadorAlertas.lanzarAlerta(3, "Se ha generado el bracket correctamente");
                 torneoCombo.setValue(null);
                 participantes.clear();
             }
@@ -376,18 +380,20 @@ public class TorneoController implements Initializable {
                     || juegoCombo.getValue() == null
                     || salaCombo.getValue() == null
                     || arbitroCombo.getValue() == null
-                    || fechaPicker.getValue() == null) return;
+                    || fechaPicker.getValue() == null) {
+                lanzadorAlertas.lanzarAlerta(1, "Campos sin rellenar");
+                return;
+            };
 
-            Torneo nuevo = new Torneo();
-            nuevo.setNombre(nombreCrearField.getText().trim());
-            nuevo.setJuego(juegoCombo.getValue());
-            nuevo.setSala(salaCombo.getValue());
-            nuevo.setUsuario(arbitroCombo.getValue());
-            nuevo.setFecha(Date.valueOf(fechaPicker.getValue()));
-            nuevo.setTorneoEstadoEnum(TorneoEstadoEnum.CREADO);
-
+            Torneo nuevo = new Torneo(nombreCrearField.getText().trim(),
+                    juegoCombo.getValue(),
+                    salaCombo.getValue(),
+                    arbitroCombo.getValue(),
+                    Date.valueOf(fechaPicker.getValue()),
+                    TorneoEstadoEnum.CREADO);
             boolean ok = torneoDao.crearTorneo(nuevo);
             if (ok) {
+                lanzadorAlertas.lanzarAlerta(3, "Torneo Creado");
                 torneos.setAll(torneoDao.listadoTorneos());
                 torneosCreados.setAll(
                         torneos.stream()

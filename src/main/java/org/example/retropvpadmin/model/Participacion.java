@@ -27,6 +27,11 @@ public class Participacion  implements java.io.Serializable {
     public Participacion() {
     }
 
+    public Participacion(ParticipacionId id, Usuario usuario) {
+        this.id = id;
+        this.usuario = usuario;
+    }
+
     public Participacion(ParticipacionId id, Torneo torneo, Usuario usuario, Timestamp fechaRegistro, Set rivals) {
        this.id = id;
        this.torneo = torneo;
