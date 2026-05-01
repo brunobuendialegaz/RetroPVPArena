@@ -1,8 +1,8 @@
 # 🕹️ Product Backlog - RetroPVPArena
 
-**Estado:** Definición Inicial | **Sprint:** 0 | **Fecha de inicio:** 08/04/2026
+**Estado:** Finalización mvp | **Sprint:** 3 | **Fecha de inicio:** 22/04/2026
 
-**Fecha fin Sprint 1:** 15/04/2026
+**Fecha fin Sprint 3:** 02/05/2026
 
 **Prioridades:** 🔴 P1: Crítico (MVP) | 🟡 P2: Importante | 🔵 P3: Deseable
 
@@ -17,29 +17,29 @@
 
 ## 2. Arquitectura de Datos (Bases de Datos)
 
-- [x] **BBDD-01 (🔴):** Análisis de Entidades y Atributos (Juegos, Torneos, Participantes) [cite: 101-106].
-- [x] **BBDD-02 (🔴):** Diseño del Diagrama Entidad-Relación (E/R) y Modelo Relacional [cite: 108-122].
-- [x] **BBDD-03 (🟡):** Script SQL de creación (`schema.sql`) e inserción de datos (`data.sql`) [cite: 127-130].
-- [23/04/2025][ ] **BBDD-04 (🟡):** Desarrollo de consultas SQL críticas (Stock, inscritos por torneo) [cite: 132-140].
+- [x] **BBDD-01 (🔴):** Análisis de Entidades y Atributos (Juegos, Torneos, Participantes).
+- [x] **BBDD-02 (🔴):** Diseño del Diagrama Entidad-Relación (E/R) y Modelo Relacional.
+- [x] **BBDD-03 (🟡):** Script SQL de creación (`schema.sql`) e inserción de datos (`data.sql`).
+- [x] **BBDD-04 (🟡):** Desarrollo de consultas SQL críticas (Stock, inscritos por torneo).
 
 ## 3. Frontend Web (Lenguajes de Marcas)
 
-- [x] **WEB-01 (🔴):** Maquetación de Landing Page con formulario de contacto [cite: 227-229, 246].
-- [ ] **WEB-02 (🟡):** Página de Catálogo con grid responsive de productos[cite: 235, 258].
-- [ ] **WEB-03 (🟡):** Página de Torneos con detalle de eventos.
-- [16/04/2025][ ] **WEB-04 (🔴):** CSS Global: Estética retro-gaming y diseño coherente [cite: 247-253].
+- [x] **WEB-01 (🔴):** Maquetación de Landing Page con formulario de contacto.
+- [x] **WEB-02 (🟡):** Página de Catálogo con grid responsive de productos.
+- [x] **WEB-03 (🟡):** Página de Torneos con detalle de eventos.
+- [x] **WEB-04 (🔴):** CSS Global: Estética retro-gaming y diseño coherente.
 
 ## 4. Backend y App JavaFX (Programación y MPO)
 
-- [16/04/2025][ ] **APP-01 (🔴):** Modelado POO: Clases `Producto`, `Torneo`, `Participante` con encapsulación [cite: 451-454].
-- [23/04/2025][ ] **APP-02 (🔴):** Conexión JDBC: Implementación de la lógica de conexión a MySQL [cite: 322-327].
-- [23/04/2025][ ] **APP-03 (🟡):** Gestión de Inventario (CRUD): Interfaz JavaFX para la tienda [cite: 313-317, 335].
-- [23/04/2025][ ] **APP-04 (🟡):** Lógica de Torneos: Validación de aforo máximo y gestión de inscripciones.
-- [30/04/2025][ ] **MPO-01 (🔴):** Mejora Estructural: Refactorización en capas (Modelo, DAO, Controller)[cite: 461, 477].
+- [x] **APP-01 (🔴):** Modelado POO: Clases `Producto`, `Torneo`, `Participante` con encapsulación.
+- [x] **APP-02 (🔴):** Conexión JDBC: Implementación de la lógica de conexión a MySQL.
+- [x] **APP-03 (🟡):** Gestión de Inventario (CRUD): Interfaz JavaFX para la tienda.
+- [x] **APP-04 (🟡):** Lógica de Torneos: Validación de aforo máximo y gestión de inscripciones.
+- [x] **MPO-01 (🔴):** Mejora Estructural: Refactorización en capas (Modelo, DAO, Controller).
 
 ## 5. Identidad y Entrega (Empleabilidad e Intermodular)
 
-- [x] **EMP-01 (🟡):** Perfil Profesional: Bio y presentación del proyecto en README [cite: 506-512].
-- [30/04/2025][ ] **DOC-01 (🔴):** Manual de instalación paso a paso en el informe de Sistemas [cite: 397-402].
-- [30/04/2025][ ] **QA-01 (🔴):** Revisión de historial de commits progresivo y descriptivo [cite: 177-184].
-- [02/05/2025][ ] **FINAL (🔴):** Entrega final antes del domingo 3 de mayo a las 23:59[cite: 731].
+- [x] **EMP-01 (🟡):** Perfil Profesional: Bio y presentación del proyecto en README.
+- [x] **DOC-01 (🔴):** Manual de instalación paso a paso en el informe de Sistemas.
+- [x] **QA-01 (🔴):** Revisión de historial de commits progresivo y descriptivo.
+- [x] **FINAL (🔴):** Entrega final antes del domingo 3 de mayo a las 23:59.
